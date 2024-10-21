@@ -1,0 +1,75 @@
+.hero-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px 20px;
+  text-align: left;
+  flex-wrap: wrap; /* Flex-wrap for better responsiveness */
+}
+
+.hero-content h1 {
+  font-family: 'Lora', serif;
+  font-size: 2.5rem;
+  color: #f77f00;
+}
+
+.hero-content p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.hero-buttons a {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f77f00;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.profile-image img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-image img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .hero-buttons a {
+    margin: 10px 0;
+  }
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px; /* Add space between buttons */
+}
+
+.hero-buttons a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f77f00;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.hero-buttons a:hover {
+  background-color: #ff6600;
+}
+
