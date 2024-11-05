@@ -4,8 +4,8 @@ import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa'; // Import ic
 
 const Contact = () => (
   <section id="contact" className={styles.contact}>
-    <h2>ff you like my projects or maybe just have the same Pinterest board, reach out!</h2>
-    <p>email me at vagar343@uw.edu, or reach out at: </p>
+    <h2>if you like my projects or maybe just have the same Pinterest board, reach out!</h2>
+    <p>let's set up a time to chat! email me at vagar343@uw.edu, or reach out at: </p>
 
     {/* Social Media Links */}
     <div className={styles.socialLinks}>
