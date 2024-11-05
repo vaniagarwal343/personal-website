@@ -26,19 +26,19 @@ const Hero = () => {
         <div className={styles.buttonContainer}>
           <a
             href="#projects"
-            onClick={() => {}}  {/* Removed setMenuOpen to avoid warnings */}
+            onClick={() => {}}  // Removed setMenuOpen to avoid warnings
             className={`${styles['button-56']}`}
           >
             My Projects & Experience
           </a>
           <a
-            href="https://drive.google.com/file/d/12sdG3FgtUZIJkVewAbY7XkC0iaPRaYLr/view?usp=sharing"
+            href="https://drive.google.com/uc?export=download&id=12sdG3FgtUZIJkVewAbY7XkC0iaPRaYLr"
             className={`${styles['button-56']}`}
           >
             My Software Development/Data Analytics Resume!
           </a>
           <a
-            href="https://drive.google.com/file/d/1E4lqaXCEu0s2Df0CDWkPxjH1Paxq5S7g/view?usp=drive_link"
+            href="https://drive.google.com/uc?export=download&id=1E4lqaXCEu0s2Df0CDWkPxjH1Paxq5S7g"
             className={`${styles['button-56']}`}
           >
             My Digital Marketing Resume!
