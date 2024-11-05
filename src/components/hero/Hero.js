@@ -30,8 +30,9 @@ const Hero = () => (
           My Software Development/Data Analytics Resume!
         </a>
         <a href="/dmresume.pdf" className={`${styles['button-56']}`} download>
-          My Digital Marketing Resume!
+  My Digital Marketing Resume!
         </a>
+
       </div>
     </div>
   </section>
