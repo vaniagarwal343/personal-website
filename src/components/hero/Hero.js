@@ -26,10 +26,10 @@ const Hero = () => (
         <a href="#projects" className={`${styles['button-56']}`} download>
           My Projects & Experience
         </a>
-        <a href="/sweresume.pdf" className={`${styles['button-56']}`} download>
+        <a href="sweresume.pdf" className={`${styles['button-56']}`} download>
           My Software Development/Data Analytics Resume!
         </a>
-        <a href="/dmresume.pdf" className={`${styles['button-56']}`} download>
+        <a href="dmresume.pdf" className={`${styles['button-56']}`} download>
   My Digital Marketing Resume!
         </a>
 
