@@ -23,13 +23,17 @@ const Hero = () => (
       </p>
 
       <div className={styles.buttonContainer}>
-        <a href="#projects" className={`${styles['button-56']}`} download>
-          My Projects & Experience
+        <a
+          href="#projects"
+          onClick={() => setMenuOpen(false)}
+          className={`${styles['button-56']}`}
+        >
+        My Projects & Experience
         </a>
-        <a href="sweresume.pdf" className={`${styles['button-56']}`} download>
+        <a href="https://drive.google.com/file/d/12sdG3FgtUZIJkVewAbY7XkC0iaPRaYLr/view?usp=sharing" className={`${styles['button-56']}`} download>
           My Software Development/Data Analytics Resume!
         </a>
-        <a href="dmresume.pdf" className={`${styles['button-56']}`} download>
+        <a href="https://drive.google.com/file/d/1E4lqaXCEu0s2Df0CDWkPxjH1Paxq5S7g/view?usp=drive_link" className={`${styles['button-56']}`} download>
   My Digital Marketing Resume!
         </a>
 
