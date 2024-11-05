@@ -1,0 +1,48 @@
+.contact {
+  padding: 50px;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.contact p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between icons */
+  margin-top: 20px;
+}
+
+.icon {
+  font-size: 1.8rem;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.icon:hover {
+  color: #0077b5; /* LinkedIn blue as default hover color */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .contact h2 {
+    font-size: 1.75rem;
+  }
+
+  .icon {
+    font-size: 1.5rem;
+  }
+
+  .socialLinks {
+    gap: 15px;
+  }
+}

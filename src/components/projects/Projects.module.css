@@ -1,0 +1,111 @@
+.projects {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.projectList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 50px; /* Increase gap to create more space between cards */
+  justify-items: center;
+}
+
+.projectCard {
+  width: 100%;
+  max-width: 280px;
+  height: 400px;
+  perspective: 1000px;
+  margin: 20px; /* Adds space around each card */
+}
+
+.cardFront, .cardBack {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Slightly darker shadow */
+}
+
+
+.cardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.projectCard:hover .cardInner {
+  transform: rotateY(180deg);
+}
+
+.cardFront, .cardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Ensures content aligns at the top */
+  align-items: center;
+  text-align: center;
+}
+
+.cardBack {
+  background-color: #f8f8f8;
+  transform: rotateY(180deg);
+  color: #333;
+  padding: 20px 20px 40px; /* More space at the bottom for better balance */
+}
+
+.projectImage {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px; /* Space between image and title */
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.projectTitle {
+  font-size: 1.2rem;
+  margin: 5px 0 10px; /* Consistent spacing between title and description */
+  font-weight: bold;
+}
+
+.projectDescription {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px; /* Adds space before list */
+}
+
+.projectDetailsList {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0 0 15px 0; /* Consistent margin for balanced spacing */
+  color: #666;
+  text-align: left;
+}
+
+.projectDetailItem {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.projectLink {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+  margin-top: auto; /* Push button to the bottom of card */
+  align-self: center;
+}
+
+.projectLink:hover {
+  background-color: #555;
+}
