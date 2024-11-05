@@ -11,14 +11,14 @@ const Hero = () => {
           <img src={profileImage} alt="Your Name" />
         </div>
         <p>
-          I’m a student at the University of Washington, where I’m working on degrees
+          I’m a student at the University of Washington, where I’m working on a double degree
           in Mathematics and Informatics. I’m passionate about tackling real-world problems
           through data and tech. I’m currently a Teaching Assistant for a Data Structures class,
           helping students get comfortable with complex algorithms and even boosting their performance.
         </p>
         <p>
           When I’m not teaching, I’m diving into research, exploring how crisis content on platforms like
-          TikTok affects viewers. I love using data to tell stories through data, like with my recent projects
+          TikTok affects viewers. I love using data to tell stories, like with my recent projects
           on education inequality and geospatial analysis. My skills range from Python, Java, and SQL to tools
           like React and Tableau, so I enjoy taking on projects that blend creativity with analytics.
         </p>
