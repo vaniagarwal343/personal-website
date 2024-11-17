@@ -21,11 +21,10 @@ const Activity = () => {
           <h3>my pinterest wishlist</h3>
           <a
             data-pin-do="embedBoard"
-            data-pin-board-width="400"
-            data-pin-scale-height="300"
+            data-pin-board-width="300"
+            data-pin-scale-height="250"
             data-pin-scale-width="80"
             href="https://www.pinterest.com/vagar343/my-shopping-spree/"
-            className={styles.srOnly}
           >
             View my Pinterest board
           </a>
@@ -44,27 +43,34 @@ const Activity = () => {
               border: 'none',
               overflow: 'hidden',
               width: '100%',
-              height: '510px',
+              height: '450px',
             }}
             title="Instagram Posts"
           ></iframe>
         </div>
 
-        {/* TikTok Profile Embed via iframe */}
+        {/* TikTok Profile Workaround */}
         <div className={styles.activityCard}>
           <h3>my tiktok</h3>
-          <iframe
-            src="https://www.tiktok.com/@vaniagarwal558/embed"
-            style={{
-              width: '100%',
-              height: '510px',
-              borderRadius: '8px',
-              border: 'none',
-              overflow: 'hidden',
-            }}
-            title="TikTok Profile Embed"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          ></iframe>
+          <a
+            href="https://www.tiktok.com/@vaniagarwal558"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: 'none', display: 'block', textAlign: 'center' }}
+          >
+            <img
+              src="https://via.placeholder.com/400x300?text=TikTok+Profile"
+              alt="TikTok Profile"
+              style={{
+                borderRadius: '8px',
+                maxWidth: '100%',
+                marginBottom: '10px',
+              }}
+            />
+            <p style={{ fontWeight: 'bold', color: '#000', fontSize: '1rem' }}>
+              Visit My TikTok Profile
+            </p>
+          </a>
         </div>
       </div>
     </section>
@@ -72,4 +78,3 @@ const Activity = () => {
 };
 
 export default Activity;
-

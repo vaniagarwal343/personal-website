@@ -33,7 +33,7 @@ const projects = [
   {
     id: 3,
     title: 'Education Inequality in the US',
-    description: 'Javascript, R, Vega-Lite',
+    description: 'Javascript, R, Vega-Lite | Used d3.js, p5.js, cloropleth maps on observable to investigate Education Inequality in the US',
     details: [
       "Developed a data visualization project to analyze and highlight education inequities in the United States.",
       "Engineered an interactive notebook on ObservableHQ using JavaScript and Vega-Lite."
@@ -58,7 +58,7 @@ const projects = [
   {
     id: 4,
     title: 'Geospatial Data Analysis and Visualization Project',
-    description: 'Python, GeoPandas, Matplotlib, Pandas, Folium',
+    description: 'Python, GeoPandas, Matplotlib, Pandas, Folium | Worked on a geospatial data analysis project, analyzing food access in WA',
     details: [
       "Developed a comprehensive data analysis pipeline using Python to analyze food access in Washington State.",
       "Merged geospatial and tabular data to create an integrated dataset using GeoPandas, enabling spatial analysis.", 
@@ -71,7 +71,7 @@ const projects = [
   {
     id: 5,
     title: 'Vaccine Scheduling System',
-    description: 'Python, GeoPandas, Matplotlib, Pandas, Folium',
+    description: 'Python, GeoPandas, Matplotlib, Pandas, Folium | I worked on a Vaccine Scheduling System for CSE 414, a database management class',
     details: [
       "Architected and built a Java and SQL based vaccine scheduling tool to allow patients and caregivers to track vaccine stock and appointments.",
       "Integrated a patient appointment booking feature that processed over 500 reservations, ensuring the allocation of available vaccine doses and caregiver schedules in real-time using SQL triggers and Java’s JDBC for database communication."

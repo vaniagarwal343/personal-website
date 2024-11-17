@@ -1,46 +1,27 @@
 .activityGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexible grid layout */
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexible layout */
+  gap: 15px; /* Reduced gap */
+  justify-content: center; /* Center the grid items */
 }
 
 .activityCard {
   background-color: #ffffff;
   border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  padding: 15px; /* Reduced padding */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  transition: transform 0.2s ease;
+  text-align: center;
 }
 
-.activityCard:hover {
-  transform: translateY(-5px);
+.activityCard h3 {
+  font-size: 1.25rem; /* Slightly smaller headings */
+  margin-bottom: 10px;
 }
 
-.activityCard iframe {
-  width: 100%; /* Full width for embeds */
-  border: none;
-}
-.activityGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexible grid layout */
-  gap: 20px;
-}
-
-.activityCard {
-  background-color: #ffffff;
+.activityCard iframe,
+.activityCard img {
+  max-width: 100%;
+  height: auto;
   border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
-  transition: transform 0.2s ease;
-}
-
-.activityCard:hover {
-  transform: translateY(-5px);
-}
-
-.activityCard iframe {
-  width: 100%; /* Full width for embeds */
-  border: none;
 }
