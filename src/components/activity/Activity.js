@@ -32,7 +32,7 @@ const Activity = () => {
 
         {/* Instagram Embed via SnapWidget */}
         <div className={styles.activityCard}>
-          <h3>my instagram</h3>
+          <h3>my gym journey</h3>
           <iframe
             src="https://snapwidget.com/embed/1083848"
             className="snapwidget-widget"
@@ -47,30 +47,6 @@ const Activity = () => {
             }}
             title="Instagram Posts"
           ></iframe>
-        </div>
-
-        {/* TikTok Profile Workaround */}
-        <div className={styles.activityCard}>
-          <h3>my tiktok</h3>
-          <a
-            href="https://www.tiktok.com/@vaniagarwal558"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: 'none', display: 'block', textAlign: 'center' }}
-          >
-            <img
-              src="https://via.placeholder.com/400x300?text=TikTok+Profile"
-              alt="TikTok Profile"
-              style={{
-                borderRadius: '8px',
-                maxWidth: '100%',
-                marginBottom: '10px',
-              }}
-            />
-            <p style={{ fontWeight: 'bold', color: '#000', fontSize: '1rem' }}>
-              Visit My TikTok Profile
-            </p>
-          </a>
         </div>
       </div>
     </section>
