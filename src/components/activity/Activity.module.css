@@ -1,6 +1,6 @@
 .activityGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexible columns */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexible grid layout */
   gap: 20px;
 }
 
@@ -18,12 +18,29 @@
 }
 
 .activityCard iframe {
-  width: 100%; /* Full width for iframe */
-  height: 400px;
+  width: 100%; /* Full width for embeds */
   border: none;
 }
+.activityGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexible grid layout */
+  gap: 20px;
+}
 
-.activityCard blockquote {
-  margin: 0 auto;
-  padding: 10px;
+.activityCard {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.activityCard:hover {
+  transform: translateY(-5px);
+}
+
+.activityCard iframe {
+  width: 100%; /* Full width for embeds */
+  border: none;
 }

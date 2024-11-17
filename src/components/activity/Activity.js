@@ -3,20 +3,12 @@ import styles from './Activity.module.css';
 
 const Activity = () => {
   useEffect(() => {
-    // Ensure Pinterest and Instagram embed scripts are loaded
     if (!window.PIN) {
       const pinterestScript = document.createElement('script');
       pinterestScript.setAttribute('async', '');
       pinterestScript.setAttribute('defer', '');
       pinterestScript.src = '//assets.pinterest.com/js/pinit.js';
       document.body.appendChild(pinterestScript);
-    }
-
-    if (!window.instgrm) {
-      const instagramScript = document.createElement('script');
-      instagramScript.async = true;
-      instagramScript.src = '//www.instagram.com/embed.js';
-      document.body.appendChild(instagramScript);
     }
   }, []);
 
@@ -39,53 +31,40 @@ const Activity = () => {
           </a>
         </div>
 
-        {/* Instagram Embed */}
+        {/* Instagram Embed via SnapWidget */}
         <div className={styles.activityCard}>
           <h3>my instagram</h3>
-          <blockquote
-            className="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/vaniagrwall/?utm_source=ig_embed&amp;utm_campaign=loading"
-            data-instgrm-version="14"
+          <iframe
+            src="https://snapwidget.com/embed/1083848"
+            className="snapwidget-widget"
+            allowTransparency="true"
+            frameBorder="0"
+            scrolling="no"
             style={{
-              background: '#FFF',
-              border: 0,
-              borderRadius: '3px',
-              boxShadow: '0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)',
-              margin: '1px',
-              maxWidth: '540px',
-              minWidth: '326px',
-              padding: 0,
-              width: '99.375%',
+              border: 'none',
+              overflow: 'hidden',
+              width: '100%',
+              height: '510px',
             }}
-          >
-            <div style={{ padding: '16px' }}>
-              <a
-                href="https://www.instagram.com/vaniagrwall/?utm_source=ig_embed&amp;utm_campaign=loading"
-                style={{ textAlign: 'center', textDecoration: 'none', width: '100%' }}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Instagram Profile
-              </a>
-            </div>
-          </blockquote>
+            title="Instagram Posts"
+          ></iframe>
         </div>
 
-        {/* TikTok Embed */}
+        {/* TikTok Profile Embed via iframe */}
         <div className={styles.activityCard}>
           <h3>my tiktok</h3>
           <iframe
-            src="https://www.tiktok.com/embed/vaniagarwal558"
-            title="TikTok Embed"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            src="https://www.tiktok.com/@vaniagarwal558/embed"
             style={{
               width: '100%',
-              height: '400px',
+              height: '510px',
               borderRadius: '8px',
               border: 'none',
               overflow: 'hidden',
             }}
-          />
+            title="TikTok Profile Embed"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          ></iframe>
         </div>
       </div>
     </section>
@@ -93,3 +72,4 @@ const Activity = () => {
 };
 
 export default Activity;
+
