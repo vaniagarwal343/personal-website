@@ -13,7 +13,7 @@ const Hero = () => {
         <p>
           I’m a student at the University of Washington, where I’m working on a double degree
           in Mathematics and Informatics. I’m passionate about tackling real-world problems
-          through data and tech. I’m currently a Teaching Assistant Data Structures & Algorithms, and Intermediate Data Programming,
+          through data and tech. I’m currently a Teaching Assistant for Data Structures & Algorithms, and Intermediate Data Programming, at UW CSE,
           helping students get comfortable with complex algorithms and even boosting their performance.
         </p>
         <p>
