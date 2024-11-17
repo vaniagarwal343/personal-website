@@ -31,14 +31,16 @@ const Hero = () => {
           >
             My Projects & Experience
           </a>
+
+    
           <a
-            href="https://drive.google.com/uc?export=download&id=12sdG3FgtUZIJkVewAbY7XkC0iaPRaYLr"
+            href="https://drive.google.com/uc?export=download&id=138A3F-Suud_V3R5TqOwduq_BzwpR2EM8"
             className={`${styles['button-56']}`}
           >
             My Software Development/Data Analytics Resume!
           </a>
           <a
-            href="https://drive.google.com/uc?export=download&id=1E4lqaXCEu0s2Df0CDWkPxjH1Paxq5S7g"
+            href="https://drive.google.com/file/d/1E4lqaXCEu0s2Df0CDWkPxjH1Paxq5S7g/view?usp=drive_link"
             className={`${styles['button-56']}`}
           >
             My Digital Marketing Resume!

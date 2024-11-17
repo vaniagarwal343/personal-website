@@ -8,8 +8,8 @@ import auliLogo from '../../assets/images/aulilogo.png';
 const projects = [
   {
     id: 1,
-    title: 'undergraduate teaching assistant',
-    description: "I'm currently serving as an undergraduate TA for CSE 373, Data Structures & Algorithms, at UW Seattle. I really enjoy it, my favorite part is handing candy out when students engage!!",
+    title: 'Undergraduate Teaching Assistant',
+    description: "I'm currently serving as an undergraduate TA for CSE 373, Data Structures & Algorithms, & CSE 163, Intermediate Data Programming at UW Seattle. I really enjoy it, my favorite part is handing candy out when students engage!!",
     details: [
       "Facilitated sessions for 150+ students, simplifying technical problems and boosting class performance by 20%.",
       "Developed and integrated JUnit test suites to assess algorithm efficiency and correctness for student projects.",
@@ -20,19 +20,20 @@ const projects = [
   },
   {
     id: 2,
-    title: 'undergraduate research assistant',
+    title: 'Undergraduate Research Assistant',
     description: 'I was an undergrad RA for UW HCDE, where I worked on a research paper examining citizen sense-making and crisis imagery on TikTok. Watching 300+ Tiktok videos was not nearly as fun as it sounds. ',
     details: [
       "Qualitatively coded and analyzed 300+ TikTok videos related to crisis imagery, performing exploratory data analysis.",
-      "Conducted trend analysis by applying time-series decomposition techniques to explore patterns in audience engagement over key crisis events."
+      "Conducted trend analysis by applying time-series decomposition techniques to explore patterns in audience engagement over key crisis events.",
+      "Paper has been submitted to CSCW"
     ],
     imageUrl: uwhcdeLogo,
     link: '' // Add the URL here
   },
   {
     id: 3,
-    title: 'education inequality in the us',
-    description: 'To enhance my data visualization skills, I worked on an interactive Observable notebook, analysing 5+ datasets on educational inequality. Learning p5.js, d3.js, using R, and creating cloropleth maps was actually extremely interesting!',
+    title: 'Education Inequality in the US',
+    description: 'Javascript, R, Vega-Lite',
     details: [
       "Developed a data visualization project to analyze and highlight education inequities in the United States.",
       "Engineered an interactive notebook on ObservableHQ using JavaScript and Vega-Lite."
@@ -53,6 +54,31 @@ const projects = [
     imageUrl: auliLogo,
     link: 'https://instagram.com/auliglow/' // Add the URL here
   },
+
+  {
+    id: 4,
+    title: 'Geospatial Data Analysis and Visualization Project',
+    description: 'Python, GeoPandas, Matplotlib, Pandas, Folium',
+    details: [
+      "Developed a comprehensive data analysis pipeline using Python to analyze food access in Washington State.",
+      "Merged geospatial and tabular data to create an integrated dataset using GeoPandas, enabling spatial analysis.", 
+      "Generated detailed geospatial visualizations including choropleth maps and interactive maps leveraging data from the 2010 U.S. Census and the USDA’s Economic Research Service."
+    ],
+    imageUrl: uwcseLogo,
+    link: '' // Add the URL here
+  },
+
+  {
+    id: 5,
+    title: 'Vaccine Scheduling System',
+    description: 'Python, GeoPandas, Matplotlib, Pandas, Folium',
+    details: [
+      "Architected and built a Java and SQL based vaccine scheduling tool to allow patients and caregivers to track vaccine stock and appointments.",
+      "Integrated a patient appointment booking feature that processed over 500 reservations, ensuring the allocation of available vaccine doses and caregiver schedules in real-time using SQL triggers and Java’s JDBC for database communication."
+    ]
+    imageUrl: uwcseLogo,
+    link: '' // Add the URL here
+  }
 ];
 
 const Projects = () => (

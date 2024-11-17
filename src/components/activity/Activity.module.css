@@ -18,7 +18,12 @@
 }
 
 .activityCard iframe {
-  width: 100%; /* Full width for iframe and Pinterest board */
+  width: 100%; /* Full width for iframe */
   height: 400px;
   border: none;
+}
+
+.activityCard blockquote {
+  margin: 0 auto;
+  padding: 10px;
 }

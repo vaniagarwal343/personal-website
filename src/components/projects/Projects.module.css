@@ -6,7 +6,7 @@
 .projectList {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 50px; /* Increase gap to create more space between cards */
+  gap: 50px;
   justify-items: center;
 }
 
@@ -15,13 +15,12 @@
   max-width: 280px;
   height: 400px;
   perspective: 1000px;
-  margin: 20px; /* Adds space around each card */
+  margin: 20px;
 }
 
 .cardFront, .cardBack {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Slightly darker shadow */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
-
 
 .cardInner {
   position: relative;
@@ -47,7 +46,7 @@
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Ensures content aligns at the top */
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
 }
@@ -56,33 +55,33 @@
   background-color: #f8f8f8;
   transform: rotateY(180deg);
   color: #333;
-  padding: 20px 20px 40px; /* More space at the bottom for better balance */
+  padding: 20px 20px 40px;
 }
 
 .projectImage {
   width: 60px;
   height: 60px;
-  margin-bottom: 15px; /* Space between image and title */
+  margin-bottom: 15px;
   border-radius: 50%;
   object-fit: cover;
 }
 
 .projectTitle {
   font-size: 1.2rem;
-  margin: 5px 0 10px; /* Consistent spacing between title and description */
+  margin: 5px 0 10px;
   font-weight: bold;
 }
 
 .projectDescription {
   font-size: 0.9rem;
   color: #666;
-  margin-bottom: 15px; /* Adds space before list */
+  margin-bottom: 15px;
 }
 
 .projectDetailsList {
   list-style-type: disc;
   padding-left: 20px;
-  margin: 0 0 15px 0; /* Consistent margin for balanced spacing */
+  margin: 0 0 15px 0;
   color: #666;
   text-align: left;
 }
@@ -102,10 +101,44 @@
   border-radius: 5px;
   font-size: 0.9rem;
   transition: background-color 0.3s ease;
-  margin-top: auto; /* Push button to the bottom of card */
+  margin-top: auto;
   align-self: center;
 }
 
 .projectLink:hover {
   background-color: #555;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .projects {
+    padding: 30px 10px;
+  }
+
+  .projectList {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .projectCard {
+    max-width: 100%;
+    margin: 10px auto;
+  }
+
+  .projectTitle {
+    font-size: 1rem;
+  }
+
+  .projectDescription {
+    font-size: 0.8rem;
+  }
+
+  .projectDetailsList {
+    padding-left: 10px;
+  }
+
+  .projectLink {
+    padding: 8px 15px;
+    font-size: 0.8rem;
+  }
 }
