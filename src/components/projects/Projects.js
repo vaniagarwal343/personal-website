@@ -75,10 +75,11 @@ const projects = [
     details: [
       "Architected and built a Java and SQL based vaccine scheduling tool to allow patients and caregivers to track vaccine stock and appointments.",
       "Integrated a patient appointment booking feature that processed over 500 reservations, ensuring the allocation of available vaccine doses and caregiver schedules in real-time using SQL triggers and Java’s JDBC for database communication."
-    ]
+    ],
     imageUrl: uwcseLogo,
     link: '' // Add the URL here
   }
+  
 ];
 
 const Projects = () => (
