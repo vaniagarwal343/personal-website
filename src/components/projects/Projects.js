@@ -7,6 +7,7 @@ import auliLogo from '../../assets/images/aulilogo.png';
 import medimindLogo from '../../assets/images/medimindlogo.png';
 import cseedImage from '../../assets/media/cseed-event.png';
 import taImage from '../../assets/media/ta.png';
+import medimindVideo from '../../assets/media/medimind-demo.mp4';
 
 const projects = [
   {
@@ -103,7 +104,7 @@ const mediaItems = [
     title: 'MediMind',
     description:
       'Current UI of my medication management app featuring personalized medication reminders.',
-    mediaUrl: '/assets/media/medimind-demo.mp4',
+    mediaUrl: medimindLogo,
     mediaType: 'video',
   },
   {
