@@ -146,18 +146,18 @@
 .mediaSection {
   margin: 4rem 0;
   padding: 2rem 1rem;
-  background-color: #f9f9f9; /* Matches the aesthetic */
+  background-color: transparent; /* No grey background */
 }
 
 .mediaList {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1.5rem; /* Adjust gap for cleaner spacing */
   justify-content: center;
 }
 
 .mediaCard {
-  width: 300px; /* Same size as project cards */
+  width: 280px; /* Matches the project cards */
   background: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -171,8 +171,8 @@
 
 .mediaContent {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: 200px; /* Adjust as needed */
+  object-fit: contain; /* Show full image or video */
 }
 
 .mediaCaption {
@@ -188,15 +188,4 @@
 .mediaCaption p {
   font-size: 1rem;
   color: #666;
-}
-
-.mediaLink {
-  display: inline-block;
-  margin-top: 0.5rem;
-  color: #007bff;
-  text-decoration: none;
-}
-
-.mediaLink:hover {
-  text-decoration: underline;
 }

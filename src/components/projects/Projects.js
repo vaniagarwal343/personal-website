@@ -110,8 +110,8 @@ const mediaItems = [
     id: 2,
     title: 'CSEED',
     description:
-      'Buildspace team @ CSEED where we encourage tech entrepreneurship for UW students',
-    mediaUrl: cseedImage,
+      'Buildspace team @ CSEED where we encourage tech entrepreneurship for UW students.',
+    mediaUrl: '/assets/media/cseed-event.png',
     mediaType: 'image',
   },
   {
@@ -119,7 +119,7 @@ const mediaItems = [
     title: 'CSE 373',
     description:
       'TA-ing for CSE 373!',
-    mediaUrl: taImage,
+    mediaUrl: '/assets/media/ta.png',
     mediaType: 'image',
   },
 ];
@@ -131,7 +131,6 @@ const Projects = () => (
       {projects.map((project) => (
         <div key={project.id} className={styles.projectCard}>
           <div className={styles.cardInner}>
-            {/* Front of the Card */}
             <div className={styles.cardFront}>
               <img
                 src={project.imageUrl}
@@ -141,38 +140,12 @@ const Projects = () => (
               <h3 className={styles.projectTitle}>{project.title}</h3>
               <p className={styles.projectDescription}>{project.description}</p>
             </div>
-            {/* Back of the Card */}
-            <div className={styles.cardBack}>
-              <h3 className={styles.projectTitle}>{project.title}</h3>
-              {Array.isArray(project.details) ? (
-                <ul className={styles.projectDetailsList}>
-                  {project.details.map((detail, index) => (
-                    <li key={index} className={styles.projectDetailItem}>
-                      {detail}
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p className={styles.projectDetails}>{project.details}</p>
-              )}
-              {/* Link to Project */}
-              {project.link && (
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.projectLink}
-                >
-                  View Project
-                </a>
-              )}
-            </div>
           </div>
         </div>
       ))}
     </div>
 
-    {/* New "My Current Highlights" Section */}
+    {/* "My Current Highlights" Section */}
     <section id="highlights" className={styles.mediaSection}>
       <h2>my current highlights</h2>
       <div className={styles.mediaList}>
@@ -185,7 +158,9 @@ const Projects = () => (
                 muted
                 loop
                 className={styles.mediaContent}
-              />
+              >
+                Your browser does not support the video tag.
+              </video>
             ) : (
               <img
                 src={item.mediaUrl}
