@@ -142,3 +142,61 @@
     font-size: 0.8rem;
   }
 }
+
+.mediaSection {
+  margin: 4rem 0;
+  padding: 2rem 1rem;
+  background-color: #f9f9f9; /* Matches the aesthetic */
+}
+
+.mediaList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.mediaCard {
+  width: 300px; /* Same size as project cards */
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+}
+
+.mediaCard:hover {
+  transform: scale(1.05);
+}
+
+.mediaContent {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.mediaCaption {
+  padding: 1rem;
+  text-align: center;
+}
+
+.mediaCaption h3 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.mediaCaption p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.mediaLink {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.mediaLink:hover {
+  text-decoration: underline;
+}
