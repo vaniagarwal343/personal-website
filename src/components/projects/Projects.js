@@ -81,7 +81,7 @@ const projects = [
     ],
     imageUrl: uwcseLogo,
     link: '' // Add the URL here
-  }
+  },
 
   {
     id: 6,
