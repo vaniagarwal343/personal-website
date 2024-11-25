@@ -111,7 +111,7 @@ const mediaItems = [
     title: 'CSEED',
     description:
       'Buildspace team @ CSEED where we encourage tech entrepreneurship for UW students.',
-    mediaUrl: '/assets/media/cseed-event.png',
+    mediaUrl: cseedImage, // Use the imported variable here
     mediaType: 'image',
   },
   {
@@ -119,10 +119,11 @@ const mediaItems = [
     title: 'CSE 373',
     description:
       'TA-ing for CSE 373!',
-    mediaUrl: '/assets/media/ta.png',
+    mediaUrl: taImage, // Use the imported variable here
     mediaType: 'image',
   },
 ];
+
 
 const Projects = () => (
   <section id="projects" className={styles.projects}>
