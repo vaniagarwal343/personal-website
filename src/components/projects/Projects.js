@@ -105,25 +105,22 @@ const mediaItems = [
       'Current UI of my medication management app featuring personalized medication reminders.',
     mediaUrl: '/assets/media/medimind-demo.mp4',
     mediaType: 'video',
-    link: '/#projects',
   },
   {
     id: 2,
     title: 'CSEED',
     description:
-      'Behind-the-scenes of a club where we encourage tech entrepreneurship for UW students',
+      'Buildspace team @ CSEED where we encourage tech entrepreneurship for UW students',
     mediaUrl: cseedImage,
     mediaType: 'image',
-    link: '',
   },
   {
     id: 3,
-    title: 'Teaching Assistant Journey',
+    title: 'CSE 373',
     description:
-      'TA-ing for CSE 373',
+      'TA-ing for CSE 373!',
     mediaUrl: taImage,
     mediaType: 'image',
-    link: '/#projects',
   },
 ];
 
@@ -177,7 +174,7 @@ const Projects = () => (
 
     {/* New "My Current Highlights" Section */}
     <section id="highlights" className={styles.mediaSection}>
-      <h2>My Current Highlights</h2>
+      <h2>my current highlights</h2>
       <div className={styles.mediaList}>
         {mediaItems.map((item) => (
           <div key={item.id} className={styles.mediaCard}>
@@ -199,11 +196,6 @@ const Projects = () => (
             <div className={styles.mediaCaption}>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
-              {item.link && (
-                <a href={item.link} className={styles.mediaLink}>
-                  View Related Project
-                </a>
-              )}
             </div>
           </div>
         ))}
