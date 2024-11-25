@@ -104,7 +104,7 @@ const mediaItems = [
     title: 'MediMind',
     description:
       'Current UI of my medication management app featuring personalized medication reminders.',
-    mediaUrl: medimindLogo,
+    mediaUrl: medimindVideo,
     mediaType: 'video',
   },
   {
