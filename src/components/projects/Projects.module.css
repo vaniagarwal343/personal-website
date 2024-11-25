@@ -146,37 +146,42 @@
 .mediaSection {
   margin: 4rem 0;
   padding: 2rem 1rem;
-  background-color: transparent; /* No grey background */
+  text-align: left; /* Aligns the section heading */
 }
 
 .mediaList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem; /* Adjust gap for cleaner spacing */
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Makes cards responsive */
+  gap: 2rem; /* Adds spacing between cards */
+  justify-content: start; /* Ensures alignment to the left */
+}
+
+.mediaCard {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+}
+
+.mediaCard:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
 }
 
 .mediaContent {
   width: 100%;
   height: 200px;
-  object-fit: contain; /* Ensures full image or video fits */
-  transition: transform 0.3s ease-in-out; /* Smooth animation */
+  object-fit: contain; /* Ensures full image/video fits without cropping */
+  transition: transform 0.3s ease-in-out; /* Smooth scaling effect */
 }
 
-/* Hover effect */
 .mediaCard:hover .mediaContent {
-  transform: scale(1.1); /* Increases size by 10% */
-}
-
-.mediaContent {
-  width: 100%;
-  height: 200px; /* Adjust as needed */
-  object-fit: contain; /* Show full image or video */
+  transform: scale(1.1); /* Grow effect */
 }
 
 .mediaCaption {
   padding: 1rem;
-  text-align: center;
+  text-align: left; /* Aligns text to the left */
 }
 
 .mediaCaption h3 {
@@ -187,4 +192,5 @@
 .mediaCaption p {
   font-size: 1rem;
   color: #666;
+  margin: 0;
 }
