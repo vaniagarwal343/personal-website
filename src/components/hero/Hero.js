@@ -40,7 +40,7 @@ const Hero = () => {
             My Software Development/Data Analytics Resume!
           </a>
           <a
-            href="https://drive.google.com/uc?export=download&id=1E4lqaXCEu0s2Df0CDWkPxjH1Paxq5S7g"
+            href="https://drive.google.com/uc?export=download&id=1yMqFBZWOyZCYk_gGs_ojT0J1IrjUbYnn"
             className={`${styles['button-56']}`}
           >
             My Digital Marketing Resume!

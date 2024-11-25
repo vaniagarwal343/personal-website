@@ -4,6 +4,7 @@ import uwcseLogo from '../../assets/images/uwcselogo.png'; // Corrected path
 import uwhcdeLogo from '../../assets/images/uwhcdelogo.png'; // Corrected path
 import observableLogo from '../../assets/images/observablelogo.png'; // Corrected path
 import auliLogo from '../../assets/images/aulilogo.png';
+import medimindLogo from '../assets/images/medimindlogo.png'
 
 const projects = [
   {
@@ -79,12 +80,54 @@ const projects = [
     imageUrl: uwcseLogo,
     link: '' // Add the URL here
   }
+
+  {
+    id: 6,
+    title: 'MediMind',
+    description: 'React, Flutter, Python, Flask, MongoDB | Built a health application with Flutter for mobile, delivering personalized health solutions and medication management features.',
+    details: [
+      "Architected and built a Java and SQL based vaccine scheduling tool to allow patients and caregivers to track vaccine stock and appointments.",
+      "Integrated a patient appointment booking feature that processed over 500 reservations, ensuring the allocation of available vaccine doses and caregiver schedules in real-time using SQL triggers and Java’s JDBC for database communication."
+    ],
+    imageUrl: medimindLogo,
+    link: '' // Add the URL here
+  }
   
+];
+
+const mediaItems = [
+  {
+    id: 1,
+    title: 'MediMind App Update',
+    description:
+      'Current UI of my medication management app featuring personalized medication reminders.',
+    mediaUrl: '/assets/media/medimind-demo.mp4',
+    mediaType: 'video',
+    link: '/#projects',
+  },
+  {
+    id: 2,
+    title: 'CSEED Club Work',
+    description:
+      'Behind-the-scenes of a club event where we mentored students on entrepreneurship and technology.',
+    mediaUrl: '/assets/media/cseed-event.jpg',
+    mediaType: 'image',
+    link: '',
+  },
+  {
+    id: 3,
+    title: 'Teaching Assistant Journey',
+    description:
+      'A snapshot of my TA experience facilitating interactive workshops for CSE 373 students.',
+    mediaUrl: '/assets/media/ta-workshop.mp4',
+    mediaType: 'video',
+    link: '/#projects',
+  },
 ];
 
 const Projects = () => (
   <section id="projects" className={styles.projects}>
-    <h2>projects & experience</h2>
+    <h2>Projects & Experience</h2>
     <div className={styles.projectList}>
       {projects.map((project) => (
         <div key={project.id} className={styles.projectCard}>
@@ -115,7 +158,12 @@ const Projects = () => (
               )}
               {/* Link to Project */}
               {project.link && (
-                <a href={project.link} target="_blank" rel="noopener noreferrer" className={styles.projectLink}>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.projectLink}
+                >
                   View Project
                 </a>
               )}
@@ -124,6 +172,41 @@ const Projects = () => (
         </div>
       ))}
     </div>
+
+    {/* New "My Current Highlights" Section */}
+    <section id="highlights" className={styles.mediaSection}>
+      <h2>My Current Highlights</h2>
+      <div className={styles.mediaList}>
+        {mediaItems.map((item) => (
+          <div key={item.id} className={styles.mediaCard}>
+            {item.mediaType === 'video' ? (
+              <video
+                src={item.mediaUrl}
+                autoPlay
+                muted
+                loop
+                className={styles.mediaContent}
+              />
+            ) : (
+              <img
+                src={item.mediaUrl}
+                alt={item.title}
+                className={styles.mediaContent}
+              />
+            )}
+            <div className={styles.mediaCaption}>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+              {item.link && (
+                <a href={item.link} className={styles.mediaLink}>
+                  View Related Project
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   </section>
 );
 
