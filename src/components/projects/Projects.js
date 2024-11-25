@@ -4,7 +4,9 @@ import uwcseLogo from '../../assets/images/uwcselogo.png'; // Corrected path
 import uwhcdeLogo from '../../assets/images/uwhcdelogo.png'; // Corrected path
 import observableLogo from '../../assets/images/observablelogo.png'; // Corrected path
 import auliLogo from '../../assets/images/aulilogo.png';
-import medimindLogo from '../assets/images/medimindlogo.png'
+import medimindLogo from '../assets/images/medimindlogo.png';
+import cseedImage from '../assets/media/cseed-event.png';
+import taImage from '../assets/media/ta.png';
 
 const projects = [
   {
@@ -98,7 +100,7 @@ const projects = [
 const mediaItems = [
   {
     id: 1,
-    title: 'MediMind App Update',
+    title: 'MediMind',
     description:
       'Current UI of my medication management app featuring personalized medication reminders.',
     mediaUrl: '/assets/media/medimind-demo.mp4',
@@ -107,10 +109,10 @@ const mediaItems = [
   },
   {
     id: 2,
-    title: 'CSEED Club Work',
+    title: 'CSEED',
     description:
-      'Behind-the-scenes of a club event where we mentored students on entrepreneurship and technology.',
-    mediaUrl: '/assets/media/cseed-event.jpg',
+      'Behind-the-scenes of a club where we encourage tech entrepreneurship for UW students',
+    mediaUrl: cseedImage,
     mediaType: 'image',
     link: '',
   },
@@ -118,9 +120,9 @@ const mediaItems = [
     id: 3,
     title: 'Teaching Assistant Journey',
     description:
-      'A snapshot of my TA experience facilitating interactive workshops for CSE 373 students.',
-    mediaUrl: '/assets/media/ta-workshop.mp4',
-    mediaType: 'video',
+      'TA-ing for CSE 373',
+    mediaUrl: taImage,
+    mediaType: 'image',
     link: '/#projects',
   },
 ];
