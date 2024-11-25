@@ -4,8 +4,8 @@ import uwcseLogo from '../../assets/images/uwcselogo.png'; // Corrected path
 import uwhcdeLogo from '../../assets/images/uwhcdelogo.png'; // Corrected path
 import observableLogo from '../../assets/images/observablelogo.png'; // Corrected path
 import auliLogo from '../../assets/images/aulilogo.png';
-import medimindLogo from '../assets/images/medimindlogo.png';
-import cseedImage from '../assets/media/cseed-event.png';
+import medimindLogo from '../../assets/images/medimindlogo.png';
+import cseedImage from '../../assets/media/cseed-event.png';
 import taImage from '../assets/media/ta.png';
 
 const projects = [
