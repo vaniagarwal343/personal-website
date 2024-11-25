@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/personal-website/static/css/main.10206a4f.css",
-    "main.js": "/personal-website/static/js/main.adcf5988.js",
+    "main.css": "/personal-website/static/css/main.68e0d773.css",
+    "main.js": "/personal-website/static/js/main.5b80924a.js",
     "static/media/cseed-event.png": "/personal-website/static/media/cseed-event.7567caed72526c279841.png",
     "static/media/profile.jpg": "/personal-website/static/media/profile.4dce6a4423393c59c710.jpg",
     "static/media/ta.png": "/personal-website/static/media/ta.1ad922413fb6f991a61e.png",
     "static/media/medimindlogo.png": "/personal-website/static/media/medimindlogo.198860026ec4e561d0ad.png",
     "index.html": "/personal-website/index.html",
-    "main.10206a4f.css.map": "/personal-website/static/css/main.10206a4f.css.map",
-    "main.adcf5988.js.map": "/personal-website/static/js/main.adcf5988.js.map"
+    "main.68e0d773.css.map": "/personal-website/static/css/main.68e0d773.css.map",
+    "main.5b80924a.js.map": "/personal-website/static/js/main.5b80924a.js.map"
   },
   "entrypoints": [
-    "static/css/main.10206a4f.css",
-    "static/js/main.adcf5988.js"
+    "static/css/main.68e0d773.css",
+    "static/js/main.5b80924a.js"
   ]
 }
