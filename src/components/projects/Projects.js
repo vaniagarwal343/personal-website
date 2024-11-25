@@ -6,7 +6,7 @@ import observableLogo from '../../assets/images/observablelogo.png'; // Correcte
 import auliLogo from '../../assets/images/aulilogo.png';
 import medimindLogo from '../../assets/images/medimindlogo.png';
 import cseedImage from '../../assets/media/cseed-event.png';
-import taImage from '../assets/media/ta.png';
+import taImage from '../../assets/media/ta.png';
 
 const projects = [
   {
