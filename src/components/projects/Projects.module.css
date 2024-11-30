@@ -18,10 +18,6 @@
   margin: 20px;
 }
 
-.cardFront, .cardBack {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
 .cardInner {
   position: relative;
   width: 100%;
@@ -39,7 +35,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden;
+  backface-visibility: hidden; /* Ensures the hidden side is not visible */
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
@@ -51,11 +47,16 @@
   text-align: center;
 }
 
+.cardFront {
+  z-index: 2; /* Keeps the front visible by default */
+}
+
 .cardBack {
   background-color: #f8f8f8;
   transform: rotateY(180deg);
   color: #333;
   padding: 20px 20px 40px;
+  z-index: 1; /* Keeps it hidden until flipped */
 }
 
 .projectImage {
@@ -141,56 +142,4 @@
     padding: 8px 15px;
     font-size: 0.8rem;
   }
-}
-
-.mediaSection {
-  margin: 4rem 0;
-  padding: 2rem 1rem;
-  text-align: left; /* Aligns the section heading */
-}
-
-.mediaList {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Makes cards responsive */
-  gap: 2rem; /* Adds spacing between cards */
-  justify-content: start; /* Ensures alignment to the left */
-}
-
-.mediaCard {
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.2s ease-in-out;
-}
-
-.mediaCard:hover {
-  transform: scale(1.05); /* Slight zoom on hover */
-}
-
-.mediaContent {
-  width: 100%;
-  height: 200px;
-  object-fit: contain; /* Ensures full image/video fits without cropping */
-  transition: transform 0.3s ease-in-out; /* Smooth scaling effect */
-}
-
-.mediaCard:hover .mediaContent {
-  transform: scale(1.1); /* Grow effect */
-}
-
-.mediaCaption {
-  padding: 1rem;
-  text-align: left; /* Aligns text to the left */
-}
-
-.mediaCaption h3 {
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
-}
-
-.mediaCaption p {
-  font-size: 1rem;
-  color: #666;
-  margin: 0;
 }

@@ -133,6 +133,7 @@ const Projects = () => (
       {projects.map((project) => (
         <div key={project.id} className={styles.projectCard}>
           <div className={styles.cardInner}>
+            {/* Front of the Card */}
             <div className={styles.cardFront}>
               <img
                 src={project.imageUrl}
@@ -142,6 +143,27 @@ const Projects = () => (
               <h3 className={styles.projectTitle}>{project.title}</h3>
               <p className={styles.projectDescription}>{project.description}</p>
             </div>
+
+            {/* Back of the Card */}
+            <div className={styles.cardBack}>
+              <ul className={styles.projectDetailsList}>
+                {project.details.map((detail, index) => (
+                  <li key={index} className={styles.projectDetailItem}>
+                    {detail}
+                  </li>
+                ))}
+              </ul>
+              {project.link && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.projectLink}
+                >
+                  Learn More
+                </a>
+              )}
+            </div>
           </div>
         </div>
       ))}
@@ -149,7 +171,7 @@ const Projects = () => (
 
     {/* "My Current Highlights" Section */}
     <section id="highlights" className={styles.mediaSection}>
-      <h2>my current highlights</h2>
+      <h2>My Current Highlights</h2>
       <div className={styles.mediaList}>
         {mediaItems.map((item) => (
           <div key={item.id} className={styles.mediaCard}>
