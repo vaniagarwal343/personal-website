@@ -143,3 +143,58 @@
     font-size: 0.8rem;
   }
 }
+
+/* Highlights Section */
+.mediaSection {
+  margin: 4rem 0;
+  padding: 2rem 1rem;
+  text-align: left; /* Aligns the section heading */
+}
+
+.mediaList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusts the width of each card */
+  gap: 2rem; /* Adds spacing between cards */
+  justify-content: center; /* Aligns the cards to the center */
+}
+
+.mediaCard {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+  text-align: center; /* Centers content inside the card */
+}
+
+.mediaCard:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.mediaContent {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: contain; /* Ensures full image/video fits without cropping */
+  transition: transform 0.3s ease-in-out; /* Smooth scaling effect */
+}
+
+.mediaCard:hover .mediaContent {
+  transform: scale(1.1); /* Grow effect */
+}
+
+.mediaCaption {
+  padding: 1rem;
+  text-align: left; /* Aligns text to the left */
+}
+
+.mediaCaption h3 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.mediaCaption p {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+}
