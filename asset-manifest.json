@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/personal-website/static/css/main.d3597e3d.css",
-    "main.js": "/personal-website/static/js/main.f2d91a54.js",
+    "main.js": "/personal-website/static/js/main.c05949ac.js",
     "static/media/cseed-event.png": "/personal-website/static/media/cseed-event.7567caed72526c279841.png",
     "static/media/profile.jpg": "/personal-website/static/media/profile.4dce6a4423393c59c710.jpg",
     "static/media/medimind-demo.mp4": "/personal-website/static/media/medimind-demo.33f3812d1d64177df755.mp4",
@@ -9,10 +9,10 @@
     "static/media/medimindlogo.png": "/personal-website/static/media/medimindlogo.198860026ec4e561d0ad.png",
     "index.html": "/personal-website/index.html",
     "main.d3597e3d.css.map": "/personal-website/static/css/main.d3597e3d.css.map",
-    "main.f2d91a54.js.map": "/personal-website/static/js/main.f2d91a54.js.map"
+    "main.c05949ac.js.map": "/personal-website/static/js/main.c05949ac.js.map"
   },
   "entrypoints": [
     "static/css/main.d3597e3d.css",
-    "static/js/main.f2d91a54.js"
+    "static/js/main.c05949ac.js"
   ]
 }
