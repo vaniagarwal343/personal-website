@@ -33,7 +33,7 @@ const Hero = () => {
           </a>
 
           <a
-            href="https://drive.google.com/uc?export=download&id=1BgfLcAHKX29rXKPweRkyR-aV-5rzc00nr-W43-XzVDA"
+            href="https://drive.google.com/uc?export=download&id=1doSPbUdQdEWLze67BHMzQf2lIcmZ0XKv"
             className={`${styles['button-56']}`}
           >
             My Software Development/Data Analytics Resume!
