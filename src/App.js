@@ -1,26 +1,32 @@
 import React from 'react';
 import Navbar from './components/navbar/Navbar';
 import Hero from './components/hero/Hero';
-import Activity from './components/activity/Activity';
+import About from './components/about/About';
+import Experience from './components/experience/Experience';
 import Projects from './components/projects/Projects';
+import Resume from './components/resume/Resume';
 import Contact from './components/contact/Contact';
 import Footer from './components/footer/Footer';
+import useDarkMode from './hooks/useDarkMode';
 import './styles/global.css';
 
 function App() {
+  const { isDark, toggleDark } = useDarkMode();
+
   return (
     <>
-      <div className="container">
-        <Navbar />
+      <Navbar isDark={isDark} toggleDark={toggleDark} />
+      <main>
         <Hero />
-        <Activity />
+        <About />
+        <Experience />
         <Projects />
+        <Resume />
         <Contact />
-      </div>
+      </main>
       <Footer />
     </>
   );
 }
-
 
 export default App;

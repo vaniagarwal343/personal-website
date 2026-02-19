@@ -1,200 +1,67 @@
 .projects {
-  padding: 60px 20px;
-  text-align: left;
+  border-top: 1px solid var(--color-border);
 }
 
-.projectList {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 50px;
-  justify-items: center;
-}
-
-.projectCard {
-  width: 100%;
-  max-width: 280px;
-  height: 400px;
-  perspective: 1000px;
-  margin: 20px;
-}
-
-.cardInner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s ease;
-  transform-style: preserve-3d;
-}
-
-.projectCard:hover .cardInner {
-  transform: rotateY(180deg);
-}
-
-.cardFront, .cardBack {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden; /* Ensures the hidden side is not visible */
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  background-color: #ffffff;
+.list {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
 }
 
-.cardFront {
-  z-index: 2; /* Keeps the front visible by default */
+.row {
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
 }
 
-.cardBack {
-  background-color: #f8f8f8;
-  transform: rotateY(180deg);
-  color: #333;
-  padding: 20px 20px 40px;
-  z-index: 1; /* Keeps it hidden until flipped */
+.row:last-child {
+  border-bottom: none;
 }
 
-.projectImage {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 15px;
-  border-radius: 50%;
-  object-fit: cover;
+.marker {
+  color: var(--color-text-muted);
+  margin-right: var(--space-sm);
 }
 
-.projectTitle {
-  font-size: 1.2rem;
-  margin: 5px 0 10px;
-  font-weight: bold;
+.title {
+  color: var(--color-text);
+  transition: color var(--transition-fast);
 }
 
-.projectDescription {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 15px;
+.title:hover {
+  color: var(--color-accent);
 }
 
-.projectDetailsList {
-  list-style-type: disc;
-  padding-left: 20px;
-  margin: 0 0 15px 0;
-  color: #666;
-  text-align: left;
+.titlePlain {
+  color: var(--color-text);
 }
 
-.projectDetailItem {
-  margin-bottom: 8px;
-  font-size: 0.9rem;
-  line-height: 1.4;
+.sep {
+  color: var(--color-text-muted);
 }
 
-.projectLink {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  transition: background-color 0.3s ease;
-  margin-top: auto;
-  align-self: center;
+.desc {
+  color: var(--color-text-muted);
 }
 
-.projectLink:hover {
-  background-color: #555;
+.stack {
+  color: var(--color-text-muted);
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-  .projects {
-    padding: 30px 10px;
+@media (max-width: 480px) {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
   }
 
-  .projectList {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .sep {
+    display: none;
   }
 
-  .projectCard {
-    max-width: 100%;
-    margin: 10px auto;
+  .desc,
+  .stack {
+    display: block;
+    width: 100%;
+    padding-left: calc(var(--space-sm) + 1em);
   }
-
-  .projectTitle {
-    font-size: 1rem;
-  }
-
-  .projectDescription {
-    font-size: 0.8rem;
-  }
-
-  .projectDetailsList {
-    padding-left: 10px;
-  }
-
-  .projectLink {
-    padding: 8px 15px;
-    font-size: 0.8rem;
-  }
-}
-
-/* Highlights Section */
-.mediaSection {
-  margin: 4rem 0;
-  padding: 2rem 1rem;
-  text-align: left; /* Aligns the section heading */
-}
-
-.mediaList {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusts the width of each card */
-  gap: 2rem; /* Adds spacing between cards */
-  justify-content: center; /* Aligns the cards to the center */
-}
-
-.mediaCard {
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.2s ease-in-out;
-  text-align: center; /* Centers content inside the card */
-}
-
-.mediaCard:hover {
-  transform: scale(1.05); /* Slight zoom on hover */
-}
-
-.mediaContent {
-  width: 100%;
-  height: auto;
-  max-height: 200px;
-  object-fit: contain; /* Ensures full image/video fits without cropping */
-  transition: transform 0.3s ease-in-out; /* Smooth scaling effect */
-}
-
-.mediaCard:hover .mediaContent {
-  transform: scale(1.1); /* Grow effect */
-}
-
-.mediaCaption {
-  padding: 1rem;
-  text-align: left; /* Aligns text to the left */
-}
-
-.mediaCaption h3 {
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
-}
-
-.mediaCaption p {
-  font-size: 1rem;
-  color: #666;
-  margin: 0;
 }
