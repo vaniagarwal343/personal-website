@@ -19,6 +19,14 @@ const roles = [
     ],
   },
   {
+    date: 'Present',
+    title: 'AI Engineer',
+    company: 'Snapp AI',
+    bullets: [
+      'Designing and building end-to-end agentic workflows, multi-step agent pipelines, and user-facing AI experiences for athletes, coaches, and sports organizations',
+    ],
+  },
+  {
     date: 'Jun — Aug 2025',
     title: 'Backend Engineering Intern',
     company: 'UPS Supply Chain Solutions',
