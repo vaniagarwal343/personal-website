@@ -307,6 +307,37 @@ $ease-slide: cubic-bezier(0.2, 0.75, 0.15, 1);
   inset: 0;
 }
 
+// A whole-cell link. Its name sits in a ground-coloured tab (bottom left)
+// that appears on hover and keyboard focus; touch screens always show it.
+.cellLink {
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+  outline-offset: -3px;
+
+  &:hover {
+    color: var(--ink);
+  }
+}
+
+.hoverLabel {
+  opacity: 0;
+  transition:
+    opacity 0.2s ease,
+    background-color 0.5s ease;
+}
+
+.cellLink:hover .hoverLabel,
+.cellLink:focus-visible .hoverLabel {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .hoverLabel {
+    opacity: 1;
+  }
+}
+
 // tbd.chat: the graphic fills the cell edge to edge.
 .plateBleed {
   padding: 0;
@@ -599,7 +630,8 @@ $ease-slide: cubic-bezier(0.2, 0.75, 0.15, 1);
 }
 
 .rsLink {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 1;
   display: flex;
   align-items: center;

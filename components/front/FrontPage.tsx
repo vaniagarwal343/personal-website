@@ -358,11 +358,10 @@ export default function FrontPage({ content: c, books, washes, assets }: Props) 
           {/* tbd.chat: one graphic */}
           <article id="tbd-chat" aria-label={c.tbdChat.title} className={cx(s.cell, s.textured, s.areaTbd)}>
             {ochre && <WashLayer wash={ochre} />}
-            <div className={cx(s.plate, s.plateBleed)}>
+            {/* The whole cell opens tbd.chat; its name shows on hover and focus. */}
+            <a className={cx(s.plate, s.plateBleed, s.cellLink)} href={c.tbdChat.url} {...NEW_TAB}>
               <PlateGraphic graphic={c.tbdChat.graphic} assets={assets} missingLabel={missing} />
-            </div>
-            <a className={s.titleTab} href={c.tbdChat.url} {...NEW_TAB}>
-              {c.tbdChat.title}
+              <span className={cx(s.titleTab, s.hoverLabel)}>{c.tbdChat.title}</span>
             </a>
           </article>
 
@@ -397,12 +396,12 @@ export default function FrontPage({ content: c, books, washes, assets }: Props) 
           {/* research.site: its mark and name, linking out */}
           <section id="research-site" aria-label={c.researchSite.title} className={cx(s.cell, s.areaResearch, s.rsCell)}>
             {graphite && <WashLayer wash={graphite} />}
-            <a className={s.rsLink} href={c.researchSite.url} aria-label={c.researchSite.title} {...NEW_TAB}>
-              {assets[c.researchSite.logo.light] ? (
+            {/* The whole cell opens research.site; its name shows on hover and focus. */}
+            <a className={cx(s.rsLink, s.cellLink)} href={c.researchSite.url} {...NEW_TAB}>
+              {assets[c.researchSite.logo.light] && (
                 <ThemedImage light={c.researchSite.logo.light} dark={c.researchSite.logo.dark} alt="" assets={assets} className={s.rsMark} />
-              ) : (
-                <span className={s.rsName}>{c.researchSite.title}</span>
               )}
+              <span className={cx(s.titleTab, s.hoverLabel)}>{c.researchSite.title}</span>
             </a>
           </section>
 
