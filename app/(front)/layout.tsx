@@ -29,7 +29,9 @@ export const metadata = {
   metadataBase: new URL('https://vaniagarwal.dev'),
   title: frontPage.meta.title,
   description: frontPage.meta.description,
-  openGraph: { title: frontPage.meta.title, description: frontPage.meta.description, type: 'website' },
+  openGraph: { title: frontPage.meta.title, description: frontPage.meta.description, type: 'website', url: '/' },
+  twitter: { card: 'summary_large_image', title: frontPage.meta.title, description: frontPage.meta.description },
+  // The preview image itself is app/(front)/opengraph-image.jpg (a snapshot of this page).
   icons: { icon: '/favicon-32x32.png', shortcut: '/favicon-16x16.png', apple: '/apple-touch-icon.png' },
 };
 
