@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio front page, approved mockup (reference)</title>
+<!--
+  Portfolio front page: the approved mockup, as plain HTML.
+  Reference only. Every word is a label or a [bracketed placeholder], and the
+  ink drawings are stand-ins. See README.md in this folder.
+-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&amp;family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&amp;display=swap">
+<style>
+body{margin:0}
+a{color:inherit}a:hover{color:var(--rubric)}
+.vp.t-light{--ground:#ffffff;--ink:#131312;--ink2:#55554f;--ink3:#6d6d66;--rule:#131312;--hair:rgba(19,19,18,.18);--rubric:#b8321a}
+.vp.t-dark{--ground:#0e0e0d;--ink:#f1efe8;--ink2:#b9b7ae;--ink3:#9b998f;--rule:#f1efe8;--hair:rgba(241,239,232,.24);--rubric:#ff7a5c}
+.vp{scrollbar-width:thin;transition:background-color .5s ease,color .5s ease}
+.tex{transition:opacity .5s ease}
+.t-light .td,.t-dark .tl{opacity:0}
+.strip{transition:transform .9s cubic-bezier(.2,.75,.15,1)}
+.s1 .strip-rs{transform:translateY(-33.3333%)}
+.s2 .strip-rs,.s3 .strip-rs{transform:translateY(-66.6667%)}
+.strip-tbd{transition-delay:.09s}
+.s1 .strip-tbd,.s2 .strip-tbd,.s3 .strip-tbd{transform:translateY(-50%)}
+.strip-rl{transition-delay:.18s}
+.strip-rec{transition-delay:.05s}
+.s1 .strip-rec{transform:translateY(-25%)}
+.s2 .strip-rec{transform:translateY(-50%)}
+.s3 .strip-rec{transform:translateY(-75%)}
+.s1 .strip-rl{transform:translateX(-12%)}
+.s2 .strip-rl{transform:translateX(-24%)}
+.s3 .strip-rl{transform:translateX(-36%)}
+.row{transition:color .3s ease}
+.mk{opacity:0;transition:opacity .3s ease}
+.s0 .r0,.s1 .r1,.s2 .r2,.s3 .r3{color:var(--rubric)}
+.s0 .r0 .mk,.s1 .r1 .mk,.s2 .r2 .mk,.s3 .r3 .mk{opacity:1}
+.pip{transition:background-color .3s ease,transform .3s ease;transform-origin:left center}
+.s0 .p0,.s1 .p1,.s2 .p2,.s3 .p3{background:var(--rubric)!important;transform:scaleY(2)}
+.tick{cursor:pointer}
+.tick:focus-visible,.btn:focus-visible,a:focus-visible{outline:2px solid var(--rubric);outline-offset:2px}
+.btn{cursor:pointer}.btn:hover{color:var(--rubric)}
+@media (prefers-reduced-motion:reduce){.strip,.tex,.vp{transition:none}}
+@media (max-width:760px){
+.vp{height:auto!important;overflow:visible!important}
+.track{height:auto!important}
+.spread{position:static!important;height:auto!important;padding:8px 14px 12px!important}
+.grid,.right,.rw{display:block!important}
+.cell{min-height:300px}
+.cell-a{min-height:520px}
+.strip{position:relative!important;height:auto!important;transform:none!important;display:block!important}
+.strip-rs,.strip-tbd{width:100%!important}
+.recwin{height:auto!important}
+.rec{padding-bottom:18px!important}
+.plate{height:300px!important}
+.foot-hint{display:none!important}
+.grid{flex:none!important}
+.head{height:auto!important;flex-wrap:wrap;gap:0 12px!important}
+.head nav a{white-space:nowrap;padding:0 8px!important}
+}
+</style>
+</head>
+<body>
+<div id="top" class="vp t-light s0" style="height: 100vh; overflow-y: auto; background: var(--ground); color: var(--ink); font-family: 'Newsreader', 'Iowan Old Style', Georgia, serif">
+<div class="track" style="height: 400vh">
+<div class="spread" style="position: sticky; top: 0; height: 100vh; box-sizing: border-box; padding: 12px 28px 10px; display: flex; flex-direction: column">
+
+<header class="head" style="flex: none; height: 44px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
+<a href="#top" style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.04em; text-decoration: none; display: flex; align-items: center; height: 44px">vaniagarwal.com</a>
+<nav aria-label="Sections" style="display: flex; align-items: center; gap: 4px; font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.04em">
+<a href="#projects" style="display: flex; align-items: center; height: 44px; padding: 0 12px; text-decoration: none">Index</a>
+<a href="#reading-list" style="display: flex; align-items: center; height: 44px; padding: 0 12px; text-decoration: none">Reading list</a>
+<a href="#colophon" style="display: flex; align-items: center; height: 44px; padding: 0 12px; text-decoration: none">Colophon</a>
+<button type="button" class="btn" id="mode-toggle" style="height: 44px; padding: 0 0 0 12px; background: none; border: 0; color: inherit; font: inherit; letter-spacing: inherit; display: flex; align-items: center; gap: 8px">
+<svg viewBox="0 0 16 16" aria-hidden="true" style="width: 14px; height: 14px; display: block"><circle cx="8" cy="8" r="6.25" style="fill: none; stroke: currentColor; stroke-width: 1.25"></circle><path d="M8 1.75 A6.25 6.25 0 0 1 8 14.25 Z" style="fill: currentColor"></path></svg>
+<span id="mode-label">Dark</span>
+</button>
+</nav>
+</header>
+
+<main class="grid" style="flex: 1 1 0; min-height: 0; display: grid; grid-template-columns: minmax(0, 41fr) minmax(0, 59fr); border-top: 1px solid var(--rule); border-left: 1px solid var(--rule)">
+
+<section class="cell cell-a" aria-label="Entrance" style="position: relative; box-sizing: border-box; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 20px 24px 14px; display: flex; flex-direction: column; min-height: 0; overflow: hidden">
+<div style="display: flex; justify-content: space-between; font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3)">
+<span>Portfolio</span>
+<span>2026</span>
+</div>
+<h1 style="margin: 56px 0 0; font-weight: 400; font-size: clamp(56px, min(7.2vw, 12vh), 108px); line-height: 0.92; letter-spacing: -0.025em">Vani<br>Agarwal</h1>
+<p style="margin: 28px 0 0; max-width: 19em; font-style: italic; font-size: 24px; line-height: 1.32; color: var(--ink2); text-wrap: pretty">[ Your one claim goes here, in your words. One or two sentences. ]</p>
+<div style="flex: 1 1 0; min-height: 16px"></div>
+<div class="recwin" style="position: relative; height: 172px; overflow: hidden; border-top: 1px solid var(--rule); margin-bottom: 14px">
+<div class="strip strip-rec" style="position: absolute; left: 0; top: 0; width: 100%; height: 400%; display: flex; flex-direction: column">
+<div class="rec" style="flex: 1 1 0; min-height: 0; box-sizing: border-box; padding: 12px 0 0; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3)"><span>Now showing</span><span>No. 01</span></div>
+<div style="font-size: 27px; line-height: 1.1; letter-spacing: -0.015em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">research.site</div>
+<dl style="margin: 2px 0 0; display: grid; grid-template-columns: 92px minmax(0, 1fr); column-gap: 12px; row-gap: 5px; align-items: baseline">
+<dt style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3)">Kind</dt><dd style="margin: 0; font-size: 17px; line-height: 1.25">Site</dd>
+<dt style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3)">Began</dt><dd style="margin: 0; font-size: 17px; line-height: 1.25">Dec 2025</dd>
+<dt style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3)">Lives at</dt><dd style="margin: 0; font-size: 17px; line-height: 1.25"><a href="https://research.site" style="text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px">research.site</a></dd>
+</dl>
+</div>
+<div class="rec" style="flex: 1 1 0; min-height: 0; box-sizing: border-box; padding: 12px 0 0; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3)"><span>Now showing</span><span>No. 02</span></div>
+<div style="font-size: 27px; line-height: 1.1; letter-spacing: -0.015em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">tbd.chat</div>
+<dl style="margin: 2px 0 0; display: grid; grid-template-columns: 92px minmax(0, 1fr); column-gap: 12px; row-gap: 5px; align-items: baseline">
+<dt style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3)">Kind</dt><dd style="margin: 0; font-size: 17px; line-height: 1.25">Product</dd>
+<dt style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3)">Began</dt><dd style="margin: 0; font-size: 17px; line-height: 1.25">[year]</dd>
+<dt style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3)">Lives at</dt><dd style="margin: 0; font-size: 17px; line-height: 1.25"><a href="https://tbd.chat" style="text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px">tbd.chat</a></dd>
+</dl>
+</div>
+<div class="rec" style="flex: 1 1 0; min-height: 0; box-sizing: border-box; padding: 12px 0 0; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3)"><span>Now showing</span><span>No. 03</span></div>
+<div style="font-size: 27px; line-height: 1.1; letter-spacing: -0.015em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Deep Research Endpoints on DRB2-20</div>
+<dl style="margin: 2px 0 0; display: grid; grid-template-columns: 92px minmax(0, 1fr); column-gap: 12px; row-gap: 5px; align-items: baseline">
+<dt style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3)">Kind</dt><dd style="margin: 0; font-size: 17px; line-height: 1.25">Benchmark, 9 systems, 20 tasks</dd>
+<dt style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3)">Published</dt><dd style="margin: 0; font-size: 17px; line-height: 1.25">Aug 2026</dd>
+<dt style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3)">Lives at</dt><dd style="margin: 0; font-size: 17px; line-height: 1.25"><a href="https://research.site/drb2-20" style="text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px">research.site/drb2-20</a></dd>
+</dl>
+</div>
+<div class="rec" style="flex: 1 1 0; min-height: 0; box-sizing: border-box; padding: 12px 0 0; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3)"><span>Now showing</span><span>No. 04</span></div>
+<div style="font-size: 27px; line-height: 1.1; letter-spacing: -0.015em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">RB-30</div>
+<dl style="margin: 2px 0 0; display: grid; grid-template-columns: 92px minmax(0, 1fr); column-gap: 12px; row-gap: 5px; align-items: baseline">
+<dt style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3)">Kind</dt><dd style="margin: 0; font-size: 17px; line-height: 1.25">Benchmark, 6 systems, 30 tasks</dd>
+<dt style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3)">Published</dt><dd style="margin: 0; font-size: 17px; line-height: 1.25">Aug 2026</dd>
+<dt style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3)">Lives at</dt><dd style="margin: 0; font-size: 17px; line-height: 1.25"><a href="https://research.site/rb-30" style="text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px">research.site/rb-30</a></dd>
+</dl>
+</div>
+</div>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--hair); margin: 0 -24px -14px; padding: 0 12px 0 24px">
+<span style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase">Plate <span id="folio">1</span> of 4</span>
+<div role="group" aria-label="Plates" style="display: flex">
+<button type="button" class="tick" aria-label="Plate 1" data-step="0" style="width: 44px; height: 44px; padding: 0; background: none; border: 0; display: flex; align-items: center; justify-content: center"><span class="pip p0" style="display: block; width: 26px; height: 2px; background: var(--ink3)"></span></button>
+<button type="button" class="tick" aria-label="Plate 2" data-step="1" style="width: 44px; height: 44px; padding: 0; background: none; border: 0; display: flex; align-items: center; justify-content: center"><span class="pip p1" style="display: block; width: 26px; height: 2px; background: var(--ink3)"></span></button>
+<button type="button" class="tick" aria-label="Plate 3" data-step="2" style="width: 44px; height: 44px; padding: 0; background: none; border: 0; display: flex; align-items: center; justify-content: center"><span class="pip p2" style="display: block; width: 26px; height: 2px; background: var(--ink3)"></span></button>
+<button type="button" class="tick" aria-label="Plate 4" data-step="3" style="width: 44px; height: 44px; padding: 0; background: none; border: 0; display: flex; align-items: center; justify-content: center"><span class="pip p3" style="display: block; width: 26px; height: 2px; background: var(--ink3)"></span></button>
+</div>
+</div>
+</section>
+
+<div class="right" style="display: grid; grid-template-rows: minmax(0, 36fr) minmax(0, 30fr) minmax(0, 34fr); min-height: 0; min-width: 0">
+
+<div class="rw" style="display: grid; grid-template-columns: minmax(0, 43fr) minmax(0, 57fr); min-height: 0">
+
+<article id="tbd-chat" class="cell" style="position: relative; overflow: hidden; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); min-height: 0">
+<img class="tex tl" src="textures/ochre-light.webp" alt="" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover">
+<img class="tex td" src="textures/ochre-dark.webp" alt="" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover">
+<div class="strip strip-tbd" style="position: absolute; left: 0; top: 0; width: 100%; height: 200%; display: flex; flex-direction: column">
+<div class="plate" style="position: relative; flex: 1 1 0; min-height: 0; box-sizing: border-box; padding: 42px 24px 50px">
+<svg viewBox="0 0 400 220" role="img" aria-label="Stand-in drawing: two separate interviews feeding one report" style="display: block; width: 100%; height: 100%; color: var(--ink)">
+<g style="fill: none; stroke: currentColor; stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round">
+<rect x="28" y="14" width="148" height="126" rx="2"></rect>
+<rect x="224" y="14" width="148" height="126" rx="2"></rect>
+<line x1="200" y1="14" x2="200" y2="140" style="stroke-dasharray: 2 6"></line>
+<rect x="40" y="28" width="84" height="18" rx="9"></rect>
+<rect x="80" y="54" width="84" height="18" rx="9" style="fill: currentColor; fill-opacity: 0.16"></rect>
+<rect x="40" y="80" width="100" height="18" rx="9"></rect>
+<rect x="92" y="106" width="72" height="18" rx="9" style="fill: currentColor; fill-opacity: 0.16"></rect>
+<rect x="236" y="28" width="96" height="18" rx="9"></rect>
+<rect x="288" y="54" width="72" height="18" rx="9" style="fill: currentColor; fill-opacity: 0.16"></rect>
+<rect x="236" y="80" width="80" height="18" rx="9"></rect>
+<rect x="268" y="106" width="92" height="18" rx="9" style="fill: currentColor; fill-opacity: 0.16"></rect>
+<path d="M102 140 V180 H160"></path>
+<path d="M298 140 V180 H240"></path>
+<path d="M154 175 L160 180 L154 185"></path>
+<path d="M246 175 L240 180 L246 185"></path>
+<rect x="160" y="158" width="80" height="46" rx="2" style="fill: currentColor; fill-opacity: 0.08"></rect>
+<line x1="171" y1="171" x2="229" y2="171"></line>
+<line x1="171" y1="181" x2="214" y2="181"></line>
+<line x1="171" y1="191" x2="223" y2="191"></line>
+</g>
+</svg>
+<div style="position: absolute; right: 0; bottom: 0; background: var(--ground); border-left: 1px solid var(--rule); border-top: 1px solid var(--rule); padding: 8px 10px 7px; font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em; white-space: nowrap">Fig. 2.1 Two interviews</div>
+</div>
+<div class="plate" style="position: relative; flex: 1 1 0; min-height: 0; box-sizing: border-box; padding: 42px 24px 50px">
+<svg viewBox="0 0 400 220" role="img" aria-label="Stand-in drawing: a compatibility report" style="display: block; width: 100%; height: 100%; color: var(--ink)">
+<g style="fill: none; stroke: currentColor; stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round">
+<rect x="70" y="12" width="260" height="196" rx="2" style="fill: currentColor; fill-opacity: 0.06"></rect>
+<line x1="90" y1="36" x2="196" y2="36" style="stroke-width: 2.5"></line>
+<line x1="90" y1="49" x2="150" y2="49"></line>
+<circle cx="140" cy="116" r="38"></circle>
+<circle cx="186" cy="116" r="38"></circle>
+<path d="M163 85.75 A38 38 0 0 1 163 146.25 A38 38 0 0 1 163 85.75 Z" style="fill: currentColor; fill-opacity: 0.2; stroke: none"></path>
+<circle cx="246" cy="88" r="2" style="fill: currentColor"></circle>
+<line x1="256" y1="88" x2="312" y2="88"></line>
+<circle cx="246" cy="107" r="2" style="fill: currentColor"></circle>
+<line x1="256" y1="107" x2="298" y2="107"></line>
+<circle cx="246" cy="126" r="2" style="fill: currentColor"></circle>
+<line x1="256" y1="126" x2="310" y2="126"></line>
+<circle cx="246" cy="145" r="2" style="fill: currentColor"></circle>
+<line x1="256" y1="145" x2="288" y2="145"></line>
+<line x1="90" y1="180" x2="310" y2="180" style="stroke-opacity: 0.4"></line>
+<line x1="90" y1="192" x2="204" y2="192"></line>
+</g>
+</svg>
+<div style="position: absolute; right: 0; bottom: 0; background: var(--ground); border-left: 1px solid var(--rule); border-top: 1px solid var(--rule); padding: 8px 10px 7px; font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em; white-space: nowrap">Fig. 2.2 The report</div>
+</div>
+</div>
+<div style="position: absolute; left: 0; top: 0; background: var(--ground); border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 8px 10px 7px; font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase">No. 02</div>
+<a href="#tbd-chat" style="position: absolute; left: 0; bottom: 0; background: var(--ground); border-right: 1px solid var(--rule); border-top: 1px solid var(--rule); padding: 6px 12px 8px; font-size: 21px; line-height: 1.1; letter-spacing: -0.01em; text-decoration: none">tbd.chat</a>
+</article>
+
+<article id="research-site" class="cell" style="position: relative; overflow: hidden; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); min-height: 0">
+<img class="tex tl" src="textures/indigo-light.webp" alt="" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover">
+<img class="tex td" src="textures/indigo-dark.webp" alt="" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover">
+<div class="strip strip-rs" style="position: absolute; left: 0; top: 0; width: 100%; height: 300%; display: flex; flex-direction: column">
+<div class="plate" style="position: relative; flex: 1 1 0; min-height: 0; box-sizing: border-box; padding: 42px 24px 50px">
+<svg viewBox="0 0 400 220" role="img" aria-label="Stand-in drawing: a score timeline with three kinds of marker" style="display: block; width: 100%; height: 100%; color: var(--ink)">
+<g style="fill: none; stroke: currentColor; stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round">
+<line x1="24" y1="196" x2="376" y2="196"></line>
+<line x1="24" y1="196" x2="24" y2="202"></line>
+<line x1="94.4" y1="196" x2="94.4" y2="202"></line>
+<line x1="164.8" y1="196" x2="164.8" y2="202"></line>
+<line x1="235.2" y1="196" x2="235.2" y2="202"></line>
+<line x1="305.6" y1="196" x2="305.6" y2="202"></line>
+<line x1="376" y1="196" x2="376" y2="202"></line>
+<line x1="24" y1="58" x2="376" y2="58" style="stroke-dasharray: 1 6; stroke-opacity: 0.7"></line>
+<line x1="24" y1="104" x2="376" y2="104" style="stroke-dasharray: 1 6; stroke-opacity: 0.7"></line>
+<line x1="24" y1="150" x2="376" y2="150" style="stroke-dasharray: 1 6; stroke-opacity: 0.7"></line>
+<circle cx="62" cy="58" r="5" style="fill: currentColor"></circle>
+<rect x="117" y="53" width="10" height="10"></rect>
+<circle cx="180" cy="58" r="5"></circle>
+<circle cx="248" cy="58" r="5" style="fill: currentColor"></circle>
+<circle cx="322" cy="58" r="5" style="fill: currentColor"></circle>
+<circle cx="80" cy="104" r="5"></circle>
+<circle cx="142" cy="104" r="5" style="fill: currentColor"></circle>
+<rect x="205" y="99" width="10" height="10"></rect>
+<circle cx="270" cy="104" r="5" style="fill: currentColor"></circle>
+<circle cx="344" cy="104" r="5"></circle>
+<rect x="55" y="145" width="10" height="10"></rect>
+<circle cx="128" cy="150" r="5" style="fill: currentColor"></circle>
+<circle cx="198" cy="150" r="5"></circle>
+<rect x="255" y="145" width="10" height="10"></rect>
+<circle cx="302" cy="150" r="5" style="fill: currentColor"></circle>
+<circle cx="356" cy="150" r="5" style="fill: currentColor"></circle>
+</g>
+</svg>
+<div style="position: absolute; right: 0; top: 0; background: var(--ground); border-left: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 8px 10px 7px; display: flex; align-items: center; gap: 12px; font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em; white-space: nowrap">
+<span style="display: flex; align-items: center; gap: 5px"><svg viewBox="0 0 10 10" aria-hidden="true" style="width: 9px; height: 9px; display: block"><circle cx="5" cy="5" r="4" style="fill: currentColor"></circle></svg>measured</span>
+<span style="display: flex; align-items: center; gap: 5px"><svg viewBox="0 0 10 10" aria-hidden="true" style="width: 9px; height: 9px; display: block"><circle cx="5" cy="5" r="3.9" style="fill: none; stroke: currentColor; stroke-width: 1.2"></circle></svg>independent</span>
+<span style="display: flex; align-items: center; gap: 5px"><svg viewBox="0 0 10 10" aria-hidden="true" style="width: 9px; height: 9px; display: block"><rect x="1.1" y="1.1" width="7.8" height="7.8" style="fill: none; stroke: currentColor; stroke-width: 1.2"></rect></svg>vendor-run</span>
+</div>
+<div style="position: absolute; right: 0; bottom: 0; background: var(--ground); border-left: 1px solid var(--rule); border-top: 1px solid var(--rule); padding: 8px 10px 7px; font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em; white-space: nowrap">Fig. 1.1 Score timeline</div>
+</div>
+<div class="plate" style="position: relative; flex: 1 1 0; min-height: 0; box-sizing: border-box; padding: 42px 24px 50px">
+<svg viewBox="0 0 400 220" role="img" aria-label="Stand-in drawing: two answers side by side with a vote" style="display: block; width: 100%; height: 100%; color: var(--ink)">
+<g style="fill: none; stroke: currentColor; stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round">
+<rect x="34" y="10" width="156" height="150" rx="2" style="fill: currentColor; fill-opacity: 0.06"></rect>
+<rect x="210" y="10" width="156" height="150" rx="2" style="fill: currentColor; fill-opacity: 0.06"></rect>
+<line x1="48" y1="50" x2="168" y2="50"></line>
+<line x1="48" y1="64" x2="176" y2="64"></line>
+<line x1="48" y1="78" x2="144" y2="78"></line>
+<line x1="48" y1="92" x2="172" y2="92"></line>
+<line x1="48" y1="106" x2="158" y2="106"></line>
+<line x1="48" y1="120" x2="132" y2="120"></line>
+<line x1="48" y1="134" x2="170" y2="134"></line>
+<line x1="224" y1="50" x2="350" y2="50"></line>
+<line x1="224" y1="64" x2="328" y2="64"></line>
+<line x1="224" y1="78" x2="352" y2="78"></line>
+<line x1="224" y1="92" x2="314" y2="92"></line>
+<line x1="224" y1="106" x2="344" y2="106"></line>
+<line x1="224" y1="120" x2="348" y2="120"></line>
+<line x1="224" y1="134" x2="294" y2="134"></line>
+<rect x="34" y="178" width="100" height="26" rx="13" style="fill: currentColor"></rect>
+<rect x="150" y="178" width="100" height="26" rx="13"></rect>
+<rect x="266" y="178" width="100" height="26" rx="13"></rect>
+</g>
+<g style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 12px; fill: currentColor; stroke: none">
+<text x="48" y="34">A</text>
+<text x="224" y="34">B</text>
+<text x="84" y="195" style="text-anchor: middle; fill: var(--ground)">A</text>
+<text x="200" y="195" style="text-anchor: middle">Tie</text>
+<text x="316" y="195" style="text-anchor: middle">B</text>
+</g>
+</svg>
+<div style="position: absolute; right: 0; bottom: 0; background: var(--ground); border-left: 1px solid var(--rule); border-top: 1px solid var(--rule); padding: 8px 10px 7px; font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em; white-space: nowrap">Fig. 1.2 Blind arena</div>
+</div>
+<div class="plate" style="position: relative; flex: 1 1 0; min-height: 0; box-sizing: border-box; padding: 42px 24px 50px">
+<svg viewBox="0 0 400 220" role="img" aria-label="Stand-in drawing: a ranked benchmark table with intervals" style="display: block; width: 100%; height: 100%; color: var(--ink)">
+<g style="fill: none; stroke: currentColor; stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round">
+<line x1="100" y1="12" x2="100" y2="208"></line>
+<line x1="34" y1="30" x2="82" y2="30"></line>
+<rect x="100" y="23" width="240" height="14" style="fill: currentColor; fill-opacity: 0.85"></rect>
+<path d="M326 30 H356 M326 25 V35 M356 25 V35"></path>
+<line x1="34" y1="62" x2="74" y2="62"></line>
+<rect x="100" y="55" width="222" height="14" style="fill: currentColor; fill-opacity: 0.16"></rect>
+<path d="M304 62 H340 M304 57 V67 M340 57 V67"></path>
+<line x1="34" y1="94" x2="80" y2="94"></line>
+<rect x="100" y="87" width="214" height="14" style="fill: currentColor; fill-opacity: 0.16"></rect>
+<path d="M298 94 H330 M298 89 V99 M330 89 V99"></path>
+<line x1="34" y1="126" x2="66" y2="126"></line>
+<rect x="100" y="119" width="170" height="14" style="fill: currentColor; fill-opacity: 0.16"></rect>
+<path d="M256 126 H284 M256 121 V131 M284 121 V131"></path>
+<line x1="34" y1="158" x2="78" y2="158"></line>
+<rect x="100" y="151" width="128" height="14" style="fill: currentColor; fill-opacity: 0.16"></rect>
+<path d="M216 158 H240 M216 153 V163 M240 153 V163"></path>
+<line x1="34" y1="190" x2="70" y2="190"></line>
+<rect x="100" y="183" width="92" height="14" style="fill: currentColor; fill-opacity: 0.16"></rect>
+<path d="M180 190 H204 M180 185 V195 M204 185 V195"></path>
+</g>
+</svg>
+<div style="position: absolute; right: 0; bottom: 0; background: var(--ground); border-left: 1px solid var(--rule); border-top: 1px solid var(--rule); padding: 8px 10px 7px; font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em; white-space: nowrap">Fig. 1.3 Benchmark table</div>
+</div>
+</div>
+<div style="position: absolute; left: 0; top: 0; background: var(--ground); border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 8px 10px 7px; font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase">No. 01</div>
+<a href="#research-site" style="position: absolute; left: 0; bottom: 0; background: var(--ground); border-right: 1px solid var(--rule); border-top: 1px solid var(--rule); padding: 6px 12px 8px; font-size: 21px; line-height: 1.1; letter-spacing: -0.01em; text-decoration: none">research.site</a>
+</article>
+
+</div>
+
+<div class="rw" style="display: grid; grid-template-columns: minmax(0, 70fr) minmax(0, 30fr); min-height: 0">
+
+<section id="projects" class="cell" aria-label="Projects index" style="position: relative; overflow: hidden; box-sizing: border-box; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 14px 20px 10px; min-height: 0; display: flex; flex-direction: column">
+<div style="display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 8px">
+<h2 style="margin: 0; font-weight: 400; font-size: 21px; line-height: 1.1; letter-spacing: -0.01em">Projects</h2>
+<span style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3)">Index, sample rows</span>
+</div>
+<div class="row r0" style="display: grid; grid-template-columns: 18px 40px minmax(0, 1fr) 96px 56px; align-items: baseline; column-gap: 8px; padding: 5px 0 4px; border-top: 1px solid var(--hair)">
+<svg class="mk" viewBox="0 0 10 10" aria-hidden="true" style="width: 8px; height: 8px; display: block; align-self: center"><path d="M1 1 L9 5 L1 9 Z" style="fill: currentColor"></path></svg>
+<span style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em">01</span>
+<a href="#research-site" style="font-size: 16px; line-height: 1.25; text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">research.site</a>
+<span style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em">site</span>
+<span style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em; text-align: right">2025</span>
+</div>
+<div class="row r1" style="display: grid; grid-template-columns: 18px 40px minmax(0, 1fr) 96px 56px; align-items: baseline; column-gap: 8px; padding: 5px 0 4px; border-top: 1px solid var(--hair)">
+<svg class="mk" viewBox="0 0 10 10" aria-hidden="true" style="width: 8px; height: 8px; display: block; align-self: center"><path d="M1 1 L9 5 L1 9 Z" style="fill: currentColor"></path></svg>
+<span style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em">02</span>
+<a href="#tbd-chat" style="font-size: 16px; line-height: 1.25; text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">tbd.chat</a>
+<span style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em">product</span>
+<span style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em; text-align: right">[year]</span>
+</div>
+<div class="row r2" style="display: grid; grid-template-columns: 18px 40px minmax(0, 1fr) 96px 56px; align-items: baseline; column-gap: 8px; padding: 5px 0 4px; border-top: 1px solid var(--hair)">
+<svg class="mk" viewBox="0 0 10 10" aria-hidden="true" style="width: 8px; height: 8px; display: block; align-self: center"><path d="M1 1 L9 5 L1 9 Z" style="fill: currentColor"></path></svg>
+<span style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em">03</span>
+<a href="#projects" style="font-size: 16px; line-height: 1.25; text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Deep Research Endpoints on DRB2-20</a>
+<span style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em">benchmark</span>
+<span style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em; text-align: right">2026</span>
+</div>
+<div class="row r3" style="display: grid; grid-template-columns: 18px 40px minmax(0, 1fr) 96px 56px; align-items: baseline; column-gap: 8px; padding: 5px 0 4px; border-top: 1px solid var(--hair)">
+<svg class="mk" viewBox="0 0 10 10" aria-hidden="true" style="width: 8px; height: 8px; display: block; align-self: center"><path d="M1 1 L9 5 L1 9 Z" style="fill: currentColor"></path></svg>
+<span style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em">04</span>
+<a href="#projects" style="font-size: 16px; line-height: 1.25; text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">RB-30</a>
+<span style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em">benchmark</span>
+<span style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em; text-align: right">2026</span>
+</div>
+<div class="row" style="display: grid; grid-template-columns: 18px 40px minmax(0, 1fr) 96px 56px; align-items: baseline; column-gap: 8px; padding: 5px 0 4px; border-top: 1px solid var(--hair)">
+<span></span>
+<span style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em">05</span>
+<a href="#projects" style="font-size: 16px; line-height: 1.25; text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">verified-deep-research</a>
+<span style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em">package</span>
+<span style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em; text-align: right">[year]</span>
+</div>
+<div class="row" style="display: grid; grid-template-columns: 18px 40px minmax(0, 1fr) 96px 56px; align-items: baseline; column-gap: 8px; padding: 5px 0 4px; border-top: 1px solid var(--hair)">
+<span></span>
+<span style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em">06</span>
+<a href="#projects" style="font-size: 16px; line-height: 1.25; text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">CSE 373, Data Structures and Algorithms</a>
+<span style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em">course</span>
+<span style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em; text-align: right">2026</span>
+</div>
+</section>
+
+<section id="colophon" class="cell" aria-label="Colophon" style="position: relative; overflow: hidden; box-sizing: border-box; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 14px 16px 10px; min-height: 0">
+<h2 style="margin: 0 0 10px; font-weight: 400; font-size: 21px; line-height: 1.1; letter-spacing: -0.01em">Colophon</h2>
+<dl style="margin: 0; display: grid; grid-template-columns: 52px minmax(0, 1fr); column-gap: 10px; row-gap: 5px; font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; line-height: 1.45; letter-spacing: 0.02em">
+<dt style="color: var(--ink3)">Type</dt><dd style="margin: 0">Newsreader, DM Mono</dd>
+<dt style="color: var(--ink3)">Rules</dt><dd style="margin: 0">1 px, shared</dd>
+<dt style="color: var(--ink3)">Washes</dt><dd style="margin: 0; display: flex; flex-direction: column; gap: 4px"><span>Generated from seeds</span><span style="display: flex; align-items: center; gap: 6px"><span style="position: relative; display: block; width: 14px; height: 14px; overflow: hidden; border: 1px solid var(--rule); flex: none"><img class="tex tl" src="textures/indigo-light.webp" alt="" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover"><img class="tex td" src="textures/indigo-dark.webp" alt="" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover"></span>Indigo 1126</span><span style="display: flex; align-items: center; gap: 6px"><span style="position: relative; display: block; width: 14px; height: 14px; overflow: hidden; border: 1px solid var(--rule); flex: none"><img class="tex tl" src="textures/ochre-light.webp" alt="" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover"><img class="tex td" src="textures/ochre-dark.webp" alt="" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover"></span>Ochre 2207</span><span style="display: flex; align-items: center; gap: 6px"><span style="position: relative; display: block; width: 14px; height: 14px; overflow: hidden; border: 1px solid var(--rule); flex: none"><img class="tex tl" src="textures/stone-light.webp" alt="" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover"><img class="tex td" src="textures/stone-dark.webp" alt="" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover"></span>Stone 3319</span></dd>
+<dt style="color: var(--ink3)">Words</dt><dd style="margin: 0">Placeholders, to be written by V.A.</dd>
+<dt style="color: var(--ink3)">Version</dt><dd style="margin: 0">0.1, 19 Nov 2026</dd>
+</dl>
+</section>
+
+</div>
+
+<div class="rw" style="display: grid; grid-template-columns: minmax(0, 30fr) minmax(0, 52fr) minmax(0, 18fr); min-height: 0">
+
+<section id="writing" class="cell" aria-label="Writing" style="position: relative; overflow: hidden; box-sizing: border-box; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 14px 16px 12px; min-height: 0; display: flex; flex-direction: column">
+<h2 style="margin: 0 0 12px; font-weight: 400; font-size: 21px; line-height: 1.1; letter-spacing: -0.01em">Writing</h2>
+<a href="#writing" style="font-style: italic; font-size: 19px; line-height: 1.24; text-decoration: none; text-wrap: pretty">Why does an instrument nobody trusts remain the industry standard?</a>
+<span style="margin-top: 8px; font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em; color: var(--ink3)">Essay, [date]</span>
+<div style="flex: 1 1 0; min-height: 8px"></div>
+<span style="border-top: 1px solid var(--hair); padding-top: 8px; font-style: italic; font-size: 16px; color: var(--ink2)">[ your next essay ]</span>
+</section>
+
+<section id="reading-list" class="cell" aria-label="Reading list" style="position: relative; overflow: hidden; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); min-height: 0">
+<img class="tex tl" src="textures/stone-light.webp" alt="" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover">
+<img class="tex td" src="textures/stone-dark.webp" alt="" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover">
+<div class="strip strip-rl" style="position: absolute; left: 0; top: 0; width: 200%; height: 100%; box-sizing: border-box; padding: 40px 0 46px">
+<svg viewBox="0 0 800 200" preserveAspectRatio="xMinYMax meet" role="img" aria-label="Stand-in drawing: a shelf of book spines" style="display: block; width: 100%; height: 100%; color: var(--ink)">
+<g style="fill: none; stroke: currentColor; stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round">
+<line x1="0" y1="186" x2="800" y2="186"></line>
+<rect x="10" y="82" width="15" height="104"></rect>
+<line x1="10" y1="98" x2="25" y2="98"></line>
+<line x1="10" y1="175" x2="25" y2="175"></line>
+<rect x="25" y="77" width="33" height="109" style="fill: currentColor; fill-opacity: 0.14"></rect>
+<line x1="25" y1="92" x2="58" y2="92"></line>
+<rect x="58" y="57" width="11" height="129" style="fill: currentColor; fill-opacity: 0.14"></rect>
+<circle cx="63.5" cy="77" r="1.5" style="fill: currentColor"></circle>
+<rect x="69" y="84" width="29" height="102"></rect>
+<line x1="69" y1="100" x2="98" y2="100"></line>
+<line x1="69" y1="106" x2="98" y2="106"></line>
+<rect x="98" y="36" width="13" height="150"></rect>
+<rect x="111" y="97" width="11" height="89" style="fill: currentColor; fill-opacity: 0.14"></rect>
+<circle cx="116.5" cy="122" r="1.5" style="fill: currentColor"></circle>
+<rect x="122" y="26" width="22" height="160"></rect>
+<line x1="122" y1="46" x2="144" y2="46"></line>
+<line x1="122" y1="53" x2="144" y2="53"></line>
+<rect x="144" y="71" width="11" height="115"></rect>
+<g transform="rotate(8 160 186)"><rect x="160" y="44" width="13" height="142"></rect></g>
+<rect x="199.636" y="80" width="15" height="106"></rect>
+<line x1="199.636" y1="98" x2="214.636" y2="98"></line>
+<line x1="199.636" y1="103" x2="214.636" y2="103"></line>
+<rect x="214.636" y="90" width="29" height="96"></rect>
+<line x1="214.636" y1="109" x2="243.636" y2="109"></line>
+<rect x="243.636" y="34" width="19" height="152" style="fill: currentColor; fill-opacity: 0.14"></rect>
+<line x1="243.636" y1="50" x2="262.636" y2="50"></line>
+<line x1="243.636" y1="56" x2="262.636" y2="56"></line>
+<rect x="262.636" y="35" width="15" height="151" style="fill: currentColor; fill-opacity: 0.14"></rect>
+<line x1="262.636" y1="46" x2="277.636" y2="46"></line>
+<line x1="262.636" y1="172" x2="277.636" y2="172"></line>
+<rect x="277.636" y="82" width="15" height="104"></rect>
+<line x1="277.636" y1="101" x2="292.636" y2="101"></line>
+<line x1="277.636" y1="170" x2="292.636" y2="170"></line>
+<rect x="292.636" y="63" width="17" height="123"></rect>
+<line x1="292.636" y1="78" x2="309.636" y2="78"></line>
+<line x1="292.636" y1="84" x2="309.636" y2="84"></line>
+<line x1="292.636" y1="171" x2="309.636" y2="171"></line>
+<rect x="309.636" y="46" width="11" height="140" style="fill: currentColor; fill-opacity: 0.14"></rect>
+<circle cx="315.136" cy="67" r="1.5" style="fill: currentColor"></circle>
+<g transform="rotate(8 325.636 186)"><rect x="325.636" y="93" width="22" height="93"></rect><line x1="325.636" y1="113" x2="347.636" y2="113"></line><line x1="325.636" y1="119" x2="347.636" y2="119"></line><line x1="325.636" y1="171" x2="347.636" y2="171"></line></g>
+<rect x="367.365" y="44" width="33" height="142" style="fill: currentColor; fill-opacity: 0.14"></rect>
+<line x1="367.365" y1="62" x2="400.365" y2="62"></line>
+<rect x="400.365" y="68" width="19" height="118" style="fill: currentColor; fill-opacity: 0.14"></rect>
+<line x1="400.365" y1="84" x2="419.365" y2="84"></line>
+<line x1="400.365" y1="171" x2="419.365" y2="171"></line>
+<rect x="419.365" y="29" width="17" height="157" style="fill: currentColor; fill-opacity: 0.14"></rect>
+<line x1="419.365" y1="44" x2="436.365" y2="44"></line>
+<line x1="419.365" y1="50" x2="436.365" y2="50"></line>
+<rect x="436.365" y="91" width="15" height="95" style="fill: currentColor; fill-opacity: 0.14"></rect>
+<line x1="436.365" y1="109" x2="451.365" y2="109"></line>
+<rect x="451.365" y="45" width="25" height="141"></rect>
+<line x1="451.365" y1="62" x2="476.365" y2="62"></line>
+<line x1="451.365" y1="69" x2="476.365" y2="69"></line>
+<rect x="476.365" y="79" width="33" height="107"></rect>
+<line x1="476.365" y1="97" x2="509.365" y2="97"></line>
+<line x1="476.365" y1="102" x2="509.365" y2="102"></line>
+<line x1="476.365" y1="171" x2="509.365" y2="171"></line>
+<rect x="509.365" y="48" width="22" height="138"></rect>
+<line x1="509.365" y1="68" x2="531.365" y2="68"></line>
+<line x1="509.365" y1="175" x2="531.365" y2="175"></line>
+<rect x="531.365" y="47" width="13" height="139"></rect>
+<rect x="544.365" y="86" width="13" height="100"></rect>
+<rect x="557.365" y="82" width="15" height="104"></rect>
+<line x1="557.365" y1="100" x2="572.365" y2="100"></line>
+<rect x="572.365" y="28" width="22" height="158"></rect>
+<line x1="572.365" y1="39" x2="594.365" y2="39"></line>
+<line x1="572.365" y1="44" x2="594.365" y2="44"></line>
+<rect x="594.365" y="69" width="29" height="117"></rect>
+<line x1="594.365" y1="84" x2="623.365" y2="84"></line>
+<line x1="594.365" y1="92" x2="623.365" y2="92"></line>
+<rect x="623.365" y="37" width="15" height="149" style="fill: currentColor; fill-opacity: 0.14"></rect>
+<line x1="623.365" y1="49" x2="638.365" y2="49"></line>
+<line x1="623.365" y1="57" x2="638.365" y2="57"></line>
+<line x1="623.365" y1="171" x2="638.365" y2="171"></line>
+<rect x="638.365" y="46" width="11" height="140"></rect>
+<rect x="649.365" y="55" width="22" height="131"></rect>
+<line x1="649.365" y1="66" x2="671.365" y2="66"></line>
+<line x1="649.365" y1="72" x2="671.365" y2="72"></line>
+<line x1="649.365" y1="175" x2="671.365" y2="175"></line>
+<rect x="671.365" y="28" width="33" height="158"></rect>
+<line x1="671.365" y1="41" x2="704.365" y2="41"></line>
+<line x1="671.365" y1="175" x2="704.365" y2="175"></line>
+<rect x="704.365" y="49" width="19" height="137"></rect>
+<line x1="704.365" y1="65" x2="723.365" y2="65"></line>
+<line x1="704.365" y1="169" x2="723.365" y2="169"></line>
+<rect x="723.365" y="85" width="11" height="101"></rect>
+<g transform="rotate(10 739.365 186)"><rect x="739.365" y="92" width="11" height="94" style="fill: currentColor; fill-opacity: 0.14"></rect><circle cx="744.865" cy="114" r="1.5" style="fill: currentColor"></circle></g>
+</g>
+</svg>
+</div>
+<div style="position: absolute; left: 0; top: 0; background: var(--ground); border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 8px 10px 7px; font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase">Sources</div>
+<a href="#reading-list" style="position: absolute; left: 0; bottom: 0; background: var(--ground); border-right: 1px solid var(--rule); border-top: 1px solid var(--rule); padding: 6px 12px 8px; font-size: 21px; line-height: 1.1; letter-spacing: -0.01em; text-decoration: none; display: flex; align-items: center; gap: 10px">Explore my reading list<svg viewBox="0 0 16 16" aria-hidden="true" style="width: 14px; height: 14px; display: block"><path d="M2 8 H13 M9 4 L13 8 L9 12" style="fill: none; stroke: currentColor; stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round"></path></svg></a>
+</section>
+
+<section id="contact" class="cell" aria-label="Contact" style="position: relative; overflow: hidden; box-sizing: border-box; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 14px 14px 12px; min-height: 0; display: flex; flex-direction: column">
+<h2 style="margin: 0; font-weight: 400; font-size: 21px; line-height: 1.1; letter-spacing: -0.01em">Contact</h2>
+<div style="flex: 1 1 0; min-height: 8px"></div>
+<a href="#contact" style="font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em; line-height: 1.5; text-decoration: none; min-height: 44px; display: flex; align-items: flex-end">[ your email ]</a>
+</section>
+
+</div>
+
+</div>
+</main>
+
+<footer style="flex: none; height: 38px; display: flex; align-items: center; justify-content: space-between; gap: 24px; font-family: 'DM Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em; color: var(--ink3)">
+<span>v0.1 mockup, 19 Nov 2026</span>
+<span class="foot-hint" style="display: flex; align-items: center; gap: 8px">Scroll to turn the plates<svg viewBox="0 0 16 16" aria-hidden="true" style="width: 12px; height: 12px; display: block"><path d="M8 2 V13 M4 9 L8 13 L12 9" style="fill: none; stroke: currentColor; stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round"></path></svg></span>
+</footer>
+
+</div>
+</div>
+</div>
+<script>
+/* Reference behaviour only: scroll position picks one of four steps, and the
+   step is written to the root as a class (s0..s3) that the CSS reads. */
+(function () {
+  var root = document.getElementById('top');
+  var folio = document.getElementById('folio');
+  var label = document.getElementById('mode-label');
+  var mode = 'light';
+  var step = 0;
+  function render() {
+    root.className = 'vp t-' + mode + ' s' + step;
+    folio.textContent = String(step + 1);
+    label.textContent = mode === 'dark' ? 'Light' : 'Dark';
+  }
+  function range() { return root.scrollHeight - root.clientHeight; }
+  root.addEventListener('scroll', function () {
+    var max = range();
+    if (max <= 4) return;
+    var s = Math.max(0, Math.min(3, Math.round(root.scrollTop / max * 3)));
+    if (s !== step) { step = s; render(); }
+  }, { passive: true });
+  document.getElementById('mode-toggle').addEventListener('click', function () {
+    mode = mode === 'dark' ? 'light' : 'dark';
+    render();
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-step]'), function (b) {
+    b.addEventListener('click', function () {
+      var i = Number(b.getAttribute('data-step'));
+      var max = range();
+      if (max > 4) { root.scrollTo({ top: max * i / 3, behavior: 'smooth' }); }
+      else { step = i; render(); }
+    });
+  });
+  render();
+})();
+</script>
+</body>
+</html>

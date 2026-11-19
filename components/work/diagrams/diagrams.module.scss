@@ -1,0 +1,21 @@
+.svg {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  color: var(--theme-text);
+}
+
+.stroke {
+  stroke: currentColor;
+  stroke-width: 1;
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.accent {
+  stroke: var(--portfolio-accent);
+}
+
+.muted {
+  stroke: var(--portfolio-muted);
+}

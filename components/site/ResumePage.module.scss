@@ -1,0 +1,41 @@
+.downloadLine {
+  margin: 0 0 24px 0;
+  font-family: var(--font-family-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.downloadLink {
+  color: var(--theme-text);
+  border-bottom: 1px solid var(--theme-border);
+  padding-bottom: 2px;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+
+.downloadLink:hover {
+  color: var(--portfolio-accent);
+  border-color: var(--portfolio-accent);
+}
+
+.frameWrap {
+  width: 100%;
+  border: 1px solid var(--theme-border);
+  background: var(--theme-foreground);
+}
+
+.frame {
+  width: 100%;
+  height: 80vh;
+  min-height: 600px;
+  border: 0;
+  display: block;
+}
+
+.fallbackLink {
+  display: block;
+  padding: 24px;
+  font-family: var(--font-family-mono);
+  font-size: 12px;
+  color: var(--theme-text);
+  text-decoration: underline;
+}

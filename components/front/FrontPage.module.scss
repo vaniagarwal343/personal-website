@@ -1,0 +1,1163 @@
+// Front page. Values are copied from design-reference/front-page.html.
+// Tokens (--ground, --ink, --rule, ...) live in front.global.scss.
+
+$narrow: 760px;
+$ease-slide: cubic-bezier(0.2, 0.75, 0.15, 1);
+
+@mixin mono($size: 11px, $track: 0.04em) {
+  font-family: var(--mono);
+  font-size: $size;
+  letter-spacing: $track;
+}
+
+@mixin caps {
+  @include mono(11px, 0.08em);
+  text-transform: lowercase;
+}
+
+// ---------------------------------------------------------------- frame
+
+.track {
+  height: calc(var(--steps, 2) * 100vh);
+}
+
+.spread {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 12px 28px 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.head {
+  flex: none;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  @include mono(12px);
+
+  a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 44px;
+  }
+}
+
+.toggle {
+  height: 44px;
+  padding: 0 0 0 12px;
+  background: none;
+  border: 0;
+  letter-spacing: inherit;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+.toggleIcon {
+  width: 14px;
+  height: 14px;
+  display: block;
+
+  circle {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.25;
+  }
+
+  path {
+    fill: currentColor;
+  }
+}
+
+.labelWhenDark {
+  display: none;
+}
+
+:global(html[data-theme='dark']) {
+  .labelWhenDark {
+    display: inline;
+  }
+
+  .labelWhenLight {
+    display: none;
+  }
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// The spread: one flat grid. Column tracks are the right column's three row
+// splits merged into shared boundaries, scaled by 59%:
+//   row 1  tbd.chat / intdev            40 / 60
+//   row 2  past work / research.site    75 / 25
+//   row 3  writing / reading / contact  30 / 52 / 18
+// The left column splits too: name (rows 1-2) over the benchmark viewer
+// (row 3), so its top rule lines up with the shelf's and contact's.
+// Rows 28 / 31 / 41 (reference: 36 / 30 / 34).
+.grid {
+  flex: 1 1 0;
+  min-height: 0;
+  display: grid;
+  grid-template-columns:
+    minmax(0, 41fr) minmax(0, 17.7fr) minmax(0, 5.9fr) minmax(0, 20.65fr)
+    minmax(0, 4.13fr) minmax(0, 10.62fr);
+  grid-template-rows: minmax(0, 28fr) minmax(0, 31fr) minmax(0, 41fr);
+  grid-template-areas:
+    'entrance tbd tbd intdev intdev intdev'
+    'entrance pastwork pastwork pastwork research research'
+    'showcase writing reading reading reading contact';
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+
+.cell {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.entrance {
+  grid-area: entrance;
+}
+.areaTbd {
+  grid-area: tbd;
+}
+.areaResearch {
+  grid-area: research;
+}
+.areaPastWork {
+  grid-area: pastwork;
+}
+.areaIntdev {
+  grid-area: intdev;
+}
+.areaShowcase {
+  grid-area: showcase;
+}
+.areaWriting {
+  grid-area: writing;
+}
+.areaReading {
+  grid-area: reading;
+}
+.areaContact {
+  grid-area: contact;
+}
+
+.foot {
+  flex: none;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  @include mono;
+  color: var(--ink3);
+}
+
+.grow {
+  flex: 1 1 0;
+  min-height: 8px;
+}
+
+.caps {
+  @include caps;
+}
+
+.h2 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.h2Gap {
+  margin-bottom: 12px;
+}
+
+.cellHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.strip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.9s $ease-slide;
+}
+
+// ---------------------------------------------------------------- textures
+
+.texture {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+}
+
+.onlyDark {
+  opacity: 0;
+}
+
+:global(html[data-theme='dark']) {
+  .onlyLight {
+    opacity: 0;
+  }
+  .onlyDark {
+    opacity: 1;
+  }
+}
+
+// Light/dark graphics: no crossfade, and the hidden one leaves the a11y tree.
+.themedDark {
+  display: none !important;
+}
+
+:global(html[data-theme='dark']) {
+  .themedLight {
+    display: none !important;
+  }
+  .themedDark {
+    display: block !important;
+  }
+}
+
+// ---------------------------------------------------------------- tabs
+
+// Text never sits on texture: every label in a textured cell is a
+// ground-coloured tab with a 1px rule on its inner edges.
+.tab {
+  position: absolute;
+  z-index: 2;
+  background: var(--ground);
+  padding: 8px 10px 7px;
+  @include mono;
+  white-space: nowrap;
+  transition: background-color 0.5s ease;
+}
+
+.tabTopRight {
+  right: 0;
+  top: 0;
+  border-left: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.titleTab {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: 0;
+  margin: 0;
+  background: var(--ground);
+  border-right: 1px solid var(--rule);
+  border-top: 1px solid var(--rule);
+  padding: 6px 12px 8px 16px;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.5s ease;
+}
+
+// ---------------------------------------------------------------- plates
+
+.plate {
+  position: relative;
+  flex: 1 1 0;
+  min-height: 0;
+  padding: 42px 24px 50px;
+}
+
+.textured > .plate {
+  position: absolute;
+  inset: 0;
+}
+
+// tbd.chat: the graphic fills the cell edge to edge.
+.plateBleed {
+  padding: 0;
+
+  .plateImg {
+    object-fit: cover;
+  }
+}
+
+// research.site: no wash. The chart fills the cell on research.site's own
+// paper colour (white, or black in the dark theme), with just enough room
+// for the picker tab (top right) and title tab (bottom left).
+.plateMatted {
+  padding: 0;
+}
+
+.plateCard {
+  position: relative;
+  height: 100%;
+  background: #ffffff;
+  padding: 36px 14px 40px;
+  display: flex;
+}
+
+:global(html[data-theme='dark']) .plateCard {
+  background: #000000;
+}
+
+.plateImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.missing {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.missingTab {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  max-width: 100%;
+  background: var(--ground);
+  border: 1px solid var(--rule);
+  padding: 8px 10px 7px;
+  @include caps;
+  color: var(--ink2);
+  transition: background-color 0.5s ease;
+}
+
+.missingPath {
+  @include mono;
+  text-transform: none;
+  color: var(--ink3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+// ---------------------------------------------------------------- picker
+
+.pickerTab {
+  padding: 0;
+}
+
+.segmented {
+  display: flex;
+}
+
+.segment {
+  position: relative;
+  height: 30px;
+  min-width: 38px;
+  padding: 0 9px;
+  background: none;
+  border: 0;
+  border-left: 1px solid var(--hair);
+  @include mono;
+  color: var(--ink2);
+  cursor: pointer;
+
+  &:first-child {
+    border-left: 0;
+  }
+
+  &:hover {
+    color: var(--accent);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 9px;
+    right: 9px;
+    bottom: 5px;
+    height: 2px;
+    background: transparent;
+    transition: background-color 0.3s ease;
+  }
+
+  &:focus-visible {
+    outline-offset: -3px;
+  }
+
+  &[aria-pressed='true'] {
+    color: var(--accent);
+
+    &::after {
+      background: var(--accent);
+    }
+  }
+}
+
+.selectWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.select {
+  appearance: none;
+  height: 30px;
+  max-width: 220px;
+  padding: 0 28px 0 10px;
+  background: var(--ground);
+  border: 0;
+  border-radius: 0;
+  @include mono;
+  color: var(--accent);
+  text-overflow: ellipsis;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline-offset: -3px;
+  }
+}
+
+.selectCaret {
+  position: absolute;
+  right: 10px;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.25;
+}
+
+// ---------------------------------------------------------------- entrance
+
+.entrance {
+  padding: 20px 24px 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+// ---------------------------------------------------------------- benchmarks
+
+// The research.site benchmark viewer: a bar with the picker, the chart on
+// research.site's own paper colour, and the record underneath.
+.showcase {
+  display: flex;
+  flex-direction: column;
+}
+
+.showHead {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 36px;
+  padding: 0 0 0 24px;
+  border-bottom: 1px solid var(--hair);
+
+  .segmented {
+    align-self: stretch;
+  }
+
+  .segment {
+    height: 100%;
+  }
+}
+
+.showPlates .showPlate {
+  padding: 8px 20px;
+}
+
+.showPlates {
+  position: relative;
+  flex: 1 1 0;
+  min-height: 0;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+:global(html[data-theme='dark']) .showPlates {
+  // research.site's dark chart background, so the chart sits seamlessly.
+  background: #080808;
+}
+
+.showPlate {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  padding: 10px 24px;
+}
+
+.showPlateLink {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.showRecords {
+  position: relative;
+  flex: none;
+  height: 44px;
+  overflow: hidden;
+  border-top: 1px solid var(--hair);
+
+  .strip {
+    transition-delay: 0.05s;
+  }
+}
+
+.record {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 24px 0;
+  min-width: 0;
+}
+
+.recordTitleLink {
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:hover .recordTitle {
+    color: var(--accent);
+  }
+}
+
+.recordLine {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  min-width: 0;
+}
+
+.recordLink {
+  @include mono;
+  white-space: nowrap;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.recordMeta {
+  @include mono;
+  color: var(--ink3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// ---------------------------------------------------------------- research.site
+
+.rsCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  container-type: size;
+}
+
+.rsLink {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.rsMark {
+  height: 48cqh;
+  width: auto;
+  max-width: 72cqw;
+  object-fit: contain;
+  transition: opacity 0.2s ease;
+}
+
+.rsLink:hover .rsMark {
+  opacity: 0.75;
+}
+
+.rsName {
+  font-size: 21px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.kicker {
+  display: flex;
+  justify-content: space-between;
+  @include caps;
+  color: var(--ink3);
+}
+
+.name {
+  margin: 28px 0 0;
+  text-transform: none;
+  font-weight: 400;
+  font-size: clamp(56px, min(7.2vw, 12vh), 108px);
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+}
+
+.claim {
+  margin: 28px 0 0;
+  text-transform: none;
+  max-width: 19em;
+  font-style: italic;
+  font-size: 24px;
+  line-height: 1.32;
+  color: var(--ink2);
+  text-wrap: pretty;
+}
+
+.recordTitle {
+  text-transform: none;
+  font-size: 22px;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// ---------------------------------------------------------------- past work
+
+.pastWork {
+  display: flex;
+  flex-direction: column;
+
+  .cellHead {
+    padding: 14px 16px 8px;
+  }
+}
+
+// The page grid in miniature: tiles share 1px lines (the ul's background
+// shows through 1px gaps), and the outer tiles meet the cell's own rules.
+.mosaic {
+  flex: 1 1 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  grid-template-rows: repeat(var(--rows), minmax(0, 1fr));
+  grid-auto-flow: row dense;
+  gap: 1px;
+  background: var(--rule);
+  border-top: 1px solid var(--rule);
+}
+
+.mosaicItem {
+  min-width: 0;
+  min-height: 0;
+  background: var(--ground);
+  display: flex;
+  transition: background-color 0.5s ease;
+}
+
+// A tile: its own wash, a one-colour line logo on top, and on hover/focus
+// a ground-coloured panel with the line about the work (text never sits on
+// the wash). Container units keep the text inside the tile at every size.
+.tile {
+  position: relative;
+  flex: 1;
+  display: block;
+  overflow: hidden;
+  container-type: size;
+  text-decoration: none;
+  color: var(--ink);
+  outline-offset: -4px;
+
+  &:hover {
+    color: var(--ink);
+  }
+}
+
+.tileWash {
+  position: absolute;
+  inset: 0;
+}
+
+.tileFace {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.25s ease;
+}
+
+.tileLogo {
+  height: 46cqh;
+  width: auto;
+  max-width: 62cqw;
+  object-fit: contain;
+}
+
+.tileMissing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+  background: var(--ground);
+  border: 1px solid var(--rule);
+  padding: 6px 10px;
+}
+
+.tileName {
+  font-size: 18px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.tileMissingNote {
+  @include caps;
+  font-size: 10px;
+  color: var(--ink3);
+}
+
+.tileDid {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6cqh 7cqw;
+  background: var(--ground);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  font-style: italic;
+  font-size: clamp(11px, min(5.4cqw, 15cqh), 16px);
+  line-height: 1.28;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+// Hover and keyboard focus swap the logo for the line about the work.
+.tile:hover,
+.tile:focus-visible {
+  .tileDid {
+    opacity: 1;
+    color: var(--accent);
+  }
+}
+
+// Touch screens: no hover, so the line sits under the logo all the time.
+@media (hover: none) {
+  .tile {
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tileWash,
+  .tileFace {
+    position: relative;
+    inset: auto;
+    height: 112px;
+    flex: none;
+  }
+
+  .tileWash {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .tileLogo {
+    height: 50px;
+    max-width: 70%;
+  }
+
+  .tileDid,
+  .tile:hover .tileDid,
+  .tile:focus-visible .tileDid {
+    position: relative;
+    inset: auto;
+    opacity: 1;
+    padding: 10px 12px 12px;
+    border-top: 1px solid var(--rule);
+    font-size: 14px;
+    color: var(--ink2);
+  }
+}
+
+// ---------------------------------------------------------------- intdev
+
+.intdev {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px 28px;
+  container-type: inline-size;
+}
+
+.intdevLabel {
+  @include caps;
+  color: var(--ink3);
+}
+
+.intdevLink {
+  display: block;
+  width: min(78cqw, 520px);
+  text-decoration: none;
+}
+
+.intdevImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: opacity 0.2s ease;
+}
+
+.intdevLink:hover .intdevImg {
+  opacity: 0.7;
+}
+
+.intdevMissing {
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+// ---------------------------------------------------------------- writing
+
+.writing {
+  padding: 14px 16px 8px;
+  display: flex;
+  flex-direction: column;
+  container-type: size;
+
+  .h2Gap {
+    margin-bottom: 8px;
+  }
+}
+
+
+.essay {
+  font-style: italic;
+  font-size: clamp(16px, 1.32vw, 19px);
+  line-height: 1.24;
+  text-decoration: none;
+  text-wrap: pretty;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.essayMeta {
+  margin-top: 6px;
+  @include mono;
+  color: var(--ink3);
+}
+
+.olderWindow {
+  position: relative;
+  flex: none;
+  height: 50px;
+  overflow: hidden;
+  border-top: 1px solid var(--hair);
+}
+
+.olderStrip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.9s $ease-slide 0.12s;
+}
+
+.olderEssay {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+}
+
+.olderEssayTitle {
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.3;
+  color: var(--ink2);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.olderEssay .essayMeta {
+  margin-top: 2px;
+}
+
+// ---------------------------------------------------------------- reading list
+
+// Only the spines: a shelf that scrolls sideways, standing on the cell's
+// bottom rule. Photos keep their own aspect ratio; typed spines are ruled.
+.shelfWindow {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--hair) transparent;
+
+  &:focus-visible {
+    outline-offset: -3px;
+  }
+}
+
+.shelf {
+  margin: 0;
+  padding: 18px 0 0;
+  list-style: none;
+  height: 100%;
+  width: max-content;
+  min-width: 100%;
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.spineItem {
+  flex: none;
+  position: relative;
+}
+
+.spineLink {
+  display: block;
+  height: 100%;
+}
+
+.spineImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom;
+  transition: transform 0.2s ease;
+}
+
+.spineLink:hover .spineImg {
+  transform: translateY(-4px);
+}
+
+.spineTyped {
+  background: var(--ground);
+  border: 1px solid var(--rule);
+  border-bottom: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  transition: background-color 0.5s ease;
+}
+
+.spineTitle {
+  writing-mode: vertical-rl;
+  max-height: 100%;
+  padding: 8px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+// ---------------------------------------------------------------- contact
+
+.contact {
+  padding: 14px 16px 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contactList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.contactLink {
+  @include mono;
+  line-height: 1.5;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  display: inline-block;
+  padding: 2px 0;
+}
+
+// ---------------------------------------------------------------- reduced motion
+
+@media (prefers-reduced-motion: reduce) {
+  .strip,
+  .olderStrip,
+  .spineImg,
+  .texture,
+  .tab,
+  .titleTab {
+    transition: none;
+  }
+}
+
+// ---------------------------------------------------------------- narrow: stacked
+
+@media (max-width: $narrow) {
+  .track {
+    height: auto;
+  }
+
+  .spread {
+    position: static;
+    height: auto;
+    padding: 8px 14px 12px;
+  }
+
+  .head {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 0 12px;
+  }
+
+  .nav a {
+    white-space: nowrap;
+    padding: 0 8px;
+  }
+
+  .grid {
+    flex: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cell {
+    min-height: 300px;
+  }
+
+  .entrance {
+    min-height: 0;
+    padding-bottom: 28px;
+  }
+
+  .showcase {
+    min-height: 0;
+  }
+
+  .showPlates {
+    flex: none;
+    height: 240px;
+  }
+
+  .rsCell {
+    min-height: 160px;
+  }
+
+  .textured {
+    height: auto;
+    aspect-ratio: 16 / 10;
+    min-height: 0;
+  }
+
+  .areaReading {
+    aspect-ratio: auto;
+    height: 300px;
+  }
+
+  .intdev {
+    min-height: 160px;
+  }
+
+  .strip {
+    transition-duration: 0.6s;
+  }
+
+  .mosaic {
+    flex: none;
+    grid-template-rows: none;
+    grid-auto-rows: minmax(132px, auto);
+  }
+
+  .pastWork {
+    min-height: 0;
+  }
+
+  .writing {
+    container-type: normal;
+  }
+
+  .olderWindow {
+    height: auto;
+    border-top: 0;
+  }
+
+  .olderStrip {
+    position: static;
+    height: auto !important;
+    transform: none !important;
+  }
+
+  .olderEssay {
+    border-top: 1px solid var(--hair);
+    padding: 6px 0;
+  }
+
+  .foot {
+    height: auto;
+    padding-top: 12px;
+  }
+}

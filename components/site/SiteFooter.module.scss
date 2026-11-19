@@ -1,0 +1,23 @@
+.root {
+  border-top: 1px solid var(--theme-border);
+  padding: 28px 0;
+}
+
+.inner {
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-family-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--portfolio-muted);
+
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
+}

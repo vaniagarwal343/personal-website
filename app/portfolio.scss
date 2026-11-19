@@ -1,0 +1,58 @@
+/* Portfolio palette overrides — applied on top of starter global.scss. */
+
+body.theme-light {
+  --theme-background: #faf7f2;
+  --theme-foreground: rgba(12, 10, 9, 0.04);
+  --theme-foreground-secondary: rgba(12, 10, 9, 0.08);
+  --theme-text: #0c0a09;
+  --theme-border: rgba(12, 10, 9, 0.12);
+  --theme-border-subdued: rgba(12, 10, 9, 0.06);
+  --theme-primary: #722f37;
+
+  --portfolio-muted: #7b7470;
+  --portfolio-accent: #722f37;
+  --portfolio-row-hover: rgba(12, 10, 9, 0.04);
+}
+
+body.theme-dark {
+  --theme-background: #0c0a09;
+  --theme-foreground: rgba(250, 247, 242, 0.04);
+  --theme-foreground-secondary: rgba(250, 247, 242, 0.08);
+  --theme-text: #faf7f2;
+  --theme-border: rgba(250, 247, 242, 0.12);
+  --theme-border-subdued: rgba(250, 247, 242, 0.06);
+  --theme-primary: #c4785a;
+
+  --portfolio-muted: #8b8580;
+  --portfolio-accent: #c4785a;
+  --portfolio-row-hover: rgba(250, 247, 242, 0.04);
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--theme-text);
+  background: var(--theme-background);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Subtle scroll-triggered fade-in helper. */
+.portfolio-fade {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+.portfolio-fade-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Restore semantic anchor styling that the reset stripped. */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:focus-visible {
+  outline: 2px solid var(--portfolio-accent);
+  outline-offset: 2px;
+}

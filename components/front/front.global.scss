@@ -1,0 +1,97 @@
+// Global tokens and base for the front page. Imported only by app/(front)/layout.tsx.
+
+:root {
+  --ground: #ffffff;
+  --ink: #131312;
+  --ink2: #55554f;
+  --ink3: #6d6d66;
+  --rule: #131312;
+  --hair: rgba(19, 19, 18, 0.18);
+  --accent: #7a1f2e;
+  --serif: var(--font-serif), 'Iowan Old Style', Georgia, serif;
+  --mono: var(--font-mono), ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+
+@mixin dark-tokens {
+  --ground: #0e0e0d;
+  --ink: #f1efe8;
+  --ink2: #b9b7ae;
+  --ink3: #9b998f;
+  --rule: #f1efe8;
+  --hair: rgba(241, 239, 232, 0.24);
+  --accent: #c26a7a;
+  color-scheme: dark;
+}
+
+:root[data-theme='dark'] {
+  @include dark-tokens;
+}
+
+// No-JS fallback: follow the OS when the init script could not run.
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    @include dark-tokens;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--serif);
+  // The whole site is set in lowercase. Content keeps its real casing
+  // (screen readers and copy-paste see it); only the rendering changes.
+  text-transform: lowercase;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease;
+}
+
+a {
+  color: inherit;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+button,
+select,
+option {
+  font: inherit;
+  color: inherit;
+  text-transform: inherit;
+}
+
+img {
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
