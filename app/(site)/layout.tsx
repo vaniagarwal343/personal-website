@@ -7,7 +7,7 @@ import * as React from 'react';
 import Providers from '@components/Providers';
 
 export const metadata = {
-  metadataBase: new URL('https://vaniagarwal.com'),
+  metadataBase: new URL('https://vaniagarwal.dev'),
   title: 'vani agarwal — designer & engineer',
   description:
     'designer & engineer building AI intermediaries. currently shipping research.site and tbd.chat.',

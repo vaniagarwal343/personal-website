@@ -17,7 +17,7 @@ export const frontPage: FrontPageContent = {
   },
 
   nav: {
-    home: 'vaniagarwal.com',
+    home: 'vaniagarwal.dev',
     toggleDark: 'Dark',
     toggleLight: 'Light',
   },

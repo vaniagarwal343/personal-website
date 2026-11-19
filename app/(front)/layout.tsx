@@ -26,7 +26,7 @@ const mono = DM_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL('https://vaniagarwal.com'),
+  metadataBase: new URL('https://vaniagarwal.dev'),
   title: frontPage.meta.title,
   description: frontPage.meta.description,
   openGraph: { title: frontPage.meta.title, description: frontPage.meta.description, type: 'website' },
